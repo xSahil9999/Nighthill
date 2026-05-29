@@ -1,0 +1,13 @@
+Lernen-Ordner: Uebersicht
+Dieser Ordner erklaert fuer Einsteiger, was jeder Projektordner macht.
+
+Projektordner und Kurzfunktion:
+- animations: Hier liegt die komplette Animations-Logik (Frames laden und Animationen je Zustand).
+- core: Hier liegt die zentrale Spielsteuerung (Game-Loop, Fenster, globale Einstellungen).
+- entities: Hier liegen alle Spielobjekte mit Verhalten (Player, Gegner, NPC).
+- ui: Hier liegt die Benutzeroberflaeche, aktuell vor allem der Startbildschirm.
+- world: Hier liegt die Welt-/Karten-Logik (Hintergruende, Bodenlinie, Zeichnung).
+- assets: Hier liegen alle Bilddateien und Rohdaten fuer Grafik/Inhalte.
+- Enemy: Hier liegen die Roh-Sprites fuer den Skelett-Gegner (Idle/Walk/Attack/Dead).
+- __pycache__: Automatisch erzeugter Python-Cache mit .pyc-Dateien zur schnelleren Ausfuehrung.
+- main.py: Einstiegspunkt, startet das Spiel ueber core.game.Game.

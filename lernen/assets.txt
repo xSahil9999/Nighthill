@@ -1,0 +1,46 @@
+Ordner: assets
+Zweck:
+- Hier liegen alle Bilddateien und Rohdaten fuer Grafik/Inhalte.
+
+Inhalt:
+- Unterordner: 11
+- Dateien: 37
+
+Dateiliste:
+- assets\Animation\attack\ATTACK1.png
+- assets\Animation\attack\ATTACK2.png
+- assets\Animation\attack\ATTACK2_1.png
+- assets\Animation\attack\ATTACK2_2.png
+- assets\Animation\attack\ATTACK2_3.png
+- assets\Animation\attack\ATTACK2_4.png
+- assets\Animation\attack\ATTACK3.png
+- assets\Animation\attack\ATTACK3_1.png
+- assets\Animation\attack\ATTACK3_2.png
+- assets\Animation\attack\ATTACK3_3.png
+- assets\Animation\attack\ATTACK3_4.png
+- assets\Animation\attack\ATTACK3_5.png
+- assets\Animation\attack\ATTACK4.png
+- assets\Animation\attack\ATTACK5.png
+- assets\Animation\death\DEATH.png
+- assets\Animation\death\DEATH1.png
+- assets\Animation\death\DEATH3.png
+- assets\Animation\death\DEATH4.png
+- assets\Animation\death\DEATH5.png
+- assets\Animation\idle\IDLE1.png
+- assets\Animation\idle\IDLE2.png
+- assets\Animation\idle\IDLE3.png
+- assets\Animation\move\RUN1.png
+- assets\Animation\move\RUN2.png
+- assets\Animation\move\RUN3.png
+- assets\Animation\move\RUN4.png
+- assets\Animation\move\RUN5.png
+- assets\Animation\move\RUN6.png
+- assets\Map\Hintergrund.png
+- assets\Map\Hintergrund2.png
+- assets\Map\hintergrund3.png
+- assets\Map\Moon.png
+- assets\NPC\idl\GandalfHardcore Goddess NPC1.png
+- assets\NPC\idl\GandalfHardcore Goddess NPC2.png
+- assets\NPC\idl\GandalfHardcore Goddess NPC3.png
+- assets\NPC\idl\GandalfHardcore Goddess NPC4.png
+- assets\NPC\NPC2.png

@@ -1,0 +1,2049 @@
+LERNEN - Aenderungen Zeile fuer Zeile (Stand: 2026-03-07)
+Hinweis: Dieses Dokument erklaert die aktuellen End-Dateien zeilenweise.
+
+DATEI: core/settings.py
+------------------------------------------------------------------------------
+Zeile 1: from pathlib import Path
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 2: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 3: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 4: PROJECT_ROOT = Path(__file__).resolve().parent.parent
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 5: ASSETS_DIR = PROJECT_ROOT / "assets"
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 6: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 7: # - Fenster und Spielbasis.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 8: WIDTH = 960
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 9: HEIGHT = 600
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 10: FPS = 60
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 11: TITLE = "Night Hill"
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 12: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 13: # - Basisfarben und Sprite-Groessen.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 14: BG_COLOR = (20, 20, 30)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 15: SPRITE_SIZE = (96, 96)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 16: ENEMY_SIZE = (72, 96)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 17: NPC_SPRITE_SIZE = (110, 138)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 18: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 19: # - Spieler-Physik.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 20: PLAYER_SPEED = 4
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 21: GRAVITY = 0.7
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 22: JUMP_STRENGTH = 13
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 23: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 24: # - Animationsgeschwindigkeit Spieler/NPC.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 25: IDLE_SPEED = 18
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 26: RUN_SPEED = 6
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 27: ATTACK_SPEED = 4
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 28: JUMP_SPEED = 8
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 29: DEATH_SPEED = 7
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 30: NPC_IDLE_SPEED = 16
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 31: NPC_FLOAT_AMPLITUDE = 10
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 32: NPC_FLOAT_SPEED = 0.06
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 33: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 34: # - Standardgegner (Skeleton).
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 35: GROUND_HEIGHT = 110
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 36: ENEMY_SPEED = 2
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 37: ENEMY_IDLE_SPEED = 20
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 38: ENEMY_WALK_SPEED = 8
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 39: ENEMY_ATTACK_SPEED = 5
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 40: ENEMY_PATROL_RANGE = 120
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 41: ENEMY_AGGRO_DISTANCE_X = 220
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 42: ENEMY_AGGRO_DISTANCE_Y = 110
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 43: ENEMY_ATTACK_DISTANCE_X = 90
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 44: ENEMY_ATTACK_DISTANCE_Y = 95
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 45: ENEMY_ATTACK_COOLDOWN = 50
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 46: ENEMY_DAMAGE_FRAME = 3
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 47: ENEMY_DEATH_SPEED = 10
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 48: ENEMY_MAX_HEALTH = 3
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 49: ENEMY_HIT_COOLDOWN = 14
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 50: ENEMY_DISAPPEAR_ON_DEATH = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 51: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 52: # - Boss (Koenigin in Hintergrund4).
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 53: BOSS_SIZE = (170, 220)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 54: BOSS_IDLE_SPEED = 20
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 55: BOSS_ATTACK_SPEED = 7
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 56: BOSS_DEATH_SPEED = 12
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 57: BOSS_FLOAT_AMPLITUDE = 18
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 58: BOSS_FLOAT_SPEED = 0.07
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 59: BOSS_DRIFT_SPEED = 2
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 60: BOSS_AGGRO_DISTANCE_X = 340
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 61: BOSS_AGGRO_DISTANCE_Y = 180
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 62: BOSS_ATTACK_DISTANCE_X = 132
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 63: BOSS_ATTACK_DISTANCE_Y = 140
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 64: BOSS_ATTACK_RADIUS = 185
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 65: BOSS_ATTACK_COOLDOWN = 66
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 66: BOSS_DAMAGE_FRAME = 3
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 67: BOSS_DAMAGE_WINDOW_FRAMES = 8
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 68: BOSS_MAX_HEALTH = 5
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 69: BOSS_HIT_COOLDOWN = 16
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 70: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 71: # - Spielerleben und Respawn.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 72: PLAYER_MAX_HEALTH = 3
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 73: PLAYER_HIT_COOLDOWN = 40
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 74: AUTO_RESPAWN_ON_DEATH = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 75: RESPAWN_DELAY_FRAMES = 90
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 76: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 77: # - Menue-Buttons.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 78: MENU_BUTTONS_VISIBLE = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 79: MENU_BUTTON_WIDTH = 320
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 80: MENU_BUTTON_HEIGHT = 70
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 81: MENU_PLAY_X = (WIDTH - MENU_BUTTON_WIDTH) // 2
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 82: MENU_PLAY_Y = 220
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 83: MENU_EXIT_X = (WIDTH - MENU_BUTTON_WIDTH) // 2
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 84: MENU_EXIT_Y = 305
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 85: MENU_PLAY_COLOR = (70, 200, 120)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 86: MENU_EXIT_COLOR = (220, 90, 90)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 87: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 88: NPC_INTERACT_DISTANCE_X = 120
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 89: NPC_INTERACT_DISTANCE_Y = 90
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 90: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 91: ENEMY_ASSETS_DIR = PROJECT_ROOT / "Enemy"
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 92: START_LEVEL = 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 93: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 94: # - Levelablauf:
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 95: #   1 -> NPC1 Dialog
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 96: #   2 -> Skeletons erledigen + rechts raus
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 97: #   3 -> NPC2 Dialog
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 98: #   4 -> Bosskampf
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 99: LEVELS = {
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 100:     1: {
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 101:         "map_file": "Hintergrund.png",
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 102:         "player_spawn_x": 200,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 103:         "enemy_spawns_x": [],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 104:         "npcs": [
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 105:             {
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 106:                 "x": 420,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 107:                 "name": "Goddess",
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 108:                 "size": [88, 124],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 109:                 # - NPC1 schwebt leicht.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 110:                 "floating": True,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 111:                 "float_amplitude": 12,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 112:                 "float_speed": 0.07,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 113:                 "dialogue": [
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 114:                     ("Du bist endlich erschienen...", "Ich habe lange auf dich gewartet."),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 115:                     ("Die Welt NightHill wird von Schatten verschlungen.", ""),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 116:                     ("Der Daemonenkoenig hat seine Armee geschickt.", "Unsere Doerfer sind gefallen..."),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 117:                     ("Viele Helden haben versucht, ihn zu besiegen.", "Keiner ist zurueckgekehrt."),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 118:                     ("Aber die alte Prophezeiung sprach von einem Fremden...", ""),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 119:                     ("Ein Wanderer aus einer anderen Welt...", "der NightHill retten wird."),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 120:                     ("Du bist dieser Wanderer.", ""),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 121:                     ("Finde deine Waffe.", "Werde staerker."),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 122:                     ("Und besiege den Daemonenkoenig...", "bevor alles verloren ist."),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 123:                 ],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 124:             },
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 125:         ],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 126:         "next_level_on_npc_finish": 2,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 127:         # - Etwas tieferer Boden nur in Hintergrund1.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 128:         "floor_y": HEIGHT - GROUND_HEIGHT + 24,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 129:         "draw_ground_overlay": False,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 130:     },
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 131:     2: {
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 132:         "map_file": "Hintergrund2.png",
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 133:         "player_spawn_x": 160,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 134:         "enemy_spawns_x": [520, 760],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 135:         "npcs": [],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 136:         "next_level_on_right_exit": 3,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 137:         "require_enemies_cleared_for_exit": True,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 138:         "floor_y": HEIGHT - GROUND_HEIGHT,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 139:         "draw_ground_overlay": False,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 140:     },
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 141:     3: {
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 142:         "map_file": "hintergrund3.png",
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 143:         "player_spawn_x": 160,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 144:         "enemy_spawns_x": [],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 145:         "npcs": [
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 146:             {
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 147:                 "x": 310,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 148:                 "name": "NPC2",
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 149:                 "sprite_file": "NPC/NPC2.png",
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 150:                 "size": [130, 138],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 151:                 "dialogue": [
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 152:                     ("Halt!", ""),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 153:                     ("Du solltest hier nicht sein.", ""),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 154:                     ("Der Daemonenkoenig ist kein Gegner fuer dich.", ""),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 155:                     ("Viele Krieger sind gegangen...", "keiner kam zurueck."),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 156:                     ("Wenn du leben willst...", "dann verschwinde aus NightHill."),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 157:                     ("Dieser Krieg ist laengst verloren.", ""),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 158:                 ],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 159:             },
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 160:         ],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 161:         "next_level_on_npc_finish": 4,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 162:         "floor_y": HEIGHT - GROUND_HEIGHT,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 163:         "draw_ground_overlay": False,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 164:     },
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 165:     4: {
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 166:         "map_file": "Hintergrund4.png",
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 167:         "player_spawn_x": 140,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 168:         "enemy_spawns_x": [],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 169:         "npcs": [],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 170:         "refill_player_health": True,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 171:         "boss_queen": {
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 172:             "x": 700,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 173:             "hover_height": 70,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 174:             "size": [170, 220],
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 175:         },
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 176:         "floor_y": HEIGHT - GROUND_HEIGHT,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 177:         "draw_ground_overlay": False,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 178:     },
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 179: }
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+
+DATEI: entities/npc.py
+------------------------------------------------------------------------------
+Zeile 1: import math
+Erklaerung: Importiert ein Modul, das in dieser Datei verwendet wird.
+Zeile 2: import re
+Erklaerung: Importiert ein Modul, das in dieser Datei verwendet wird.
+Zeile 3: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 4: import pygame
+Erklaerung: Importiert ein Modul, das in dieser Datei verwendet wird.
+Zeile 5: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 6: from core import settings
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 7: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 8: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 9: class NPC:
+Erklaerung: Definiert eine Klasse mit eigenem Zustand und Verhalten.
+Zeile 10:     def __init__(
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 11:         self,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 12:         x: int,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 13:         y: int,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 14:         name: str = "Goddess",
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 15:         dialogue: list[tuple[str, str]] | None = None,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 16:         sprite_file: str | None = None,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 17:         sprite_size: tuple[int, int] | None = None,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 18:         floating: bool = False,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 19:         float_amplitude: int | None = None,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 20:         float_speed: float | None = None,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 21:     ):
+Erklaerung: Leitet einen neuen eingerueckten Code-Block ein.
+Zeile 22:         # - Grunddaten und Sprite-Laden.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 23:         self.name = name
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 24:         self.sprite_file = sprite_file
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 25:         self.sprite_size = sprite_size or settings.NPC_SPRITE_SIZE
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 26:         self.frames = self._load_idle_frames()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 27:         self.frame_index = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 28:         self.animation_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 29: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 30:         self.image = self.frames[0]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 31:         self.rect = self.image.get_rect(topleft=(x, y))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 32: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 33:         # - Optionales Schweben (sinusfoermig).
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 34:         self.base_y = y
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 35:         self.floating = floating
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 36:         self.float_amplitude = (
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 37:             float_amplitude
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 38:             if isinstance(float_amplitude, int) and float_amplitude >= 0
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 39:             else settings.NPC_FLOAT_AMPLITUDE
+Erklaerung: Fallback-Zweig, falls keine vorherige Bedingung zutrifft.
+Zeile 40:         )
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 41:         self.float_speed = (
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 42:             float_speed
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 43:             if isinstance(float_speed, (float, int)) and float_speed > 0
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 44:             else settings.NPC_FLOAT_SPEED
+Erklaerung: Fallback-Zweig, falls keine vorherige Bedingung zutrifft.
+Zeile 45:         )
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 46:         self.float_phase = x * 0.01
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 47: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 48:         # - Dialog-Status.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 49:         self.dialogue = dialogue or [
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 50:             ("Ich habe einen Auftrag fuer dich.", "Gehe weiter nach Night Hill."),
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 51:         ]
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 52:         self.dialogue_index = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 53:         self.talking = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 54:         self.quest_started = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 55:         self.dialogue_finished = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 56: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 57:         self.prompt_font = pygame.font.SysFont(None, 28)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 58:         self.name_font = pygame.font.SysFont(None, 30)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 59:         self.dialog_font = pygame.font.SysFont(None, 26)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 60: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 61:     def _load_idle_frames(self) -> list[pygame.Surface]:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 62:         # - Wenn direktes NPC-Bild gesetzt ist, nur dieses laden.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 63:         if self.sprite_file:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 64:             custom_path = settings.ASSETS_DIR / self.sprite_file
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 65:             if custom_path.exists():
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 66:                 frame = pygame.image.load(str(custom_path)).convert_alpha()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 67:                 frame = pygame.transform.scale(frame, self.sprite_size)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 68:                 return [frame]
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 69: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 70:         # - Sonst alle Idle-Frames aus assets/NPC/idl.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 71:         idle_dir = settings.ASSETS_DIR / "NPC" / "idl"
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 72:         frame_paths = sorted(idle_dir.glob("*.png"), key=self._frame_sort_key)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 73: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 74:         if not frame_paths:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 75:             fallback = pygame.Surface(self.sprite_size, pygame.SRCALPHA)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 76:             fallback.fill((220, 200, 120))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 77:             return [fallback]
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 78: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 79:         frames: list[pygame.Surface] = []
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 80:         for path in frame_paths:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 81:             frame = pygame.image.load(str(path)).convert_alpha()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 82:             frame = pygame.transform.scale(frame, self.sprite_size)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 83:             frames.append(frame)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 84:         return frames
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 85: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 86:     @staticmethod
+Erklaerung: Decorator-Zeile: aendert das Verhalten der folgenden Funktion.
+Zeile 87:     def _frame_sort_key(path) -> int:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 88:         match = re.search(r"(\d+)$", path.stem)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 89:         if match:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 90:             return int(match.group(1))
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 91:         return 9999
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 92: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 93:     def update(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 94:         # - Y-Position fuer Schweben aktualisieren.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 95:         if self.floating:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 96:             self.float_phase += self.float_speed
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 97:             self.rect.y = self.base_y + int(math.sin(self.float_phase) * self.float_amplitude)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 98:         else:
+Erklaerung: Fallback-Zweig, falls keine vorherige Bedingung zutrifft.
+Zeile 99:             self.rect.y = self.base_y
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 100: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 101:         # - Idle-Animation weiterschalten.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 102:         self.animation_timer += 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 103:         if self.animation_timer < settings.NPC_IDLE_SPEED:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 104:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 105: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 106:         self.animation_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 107:         self.frame_index += 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 108:         if self.frame_index >= len(self.frames):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 109:             self.frame_index = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 110: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 111:         self.image = self.frames[self.frame_index]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 112: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 113:     def is_player_near(self, player_rect: pygame.Rect) -> bool:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 114:         dx = abs(player_rect.centerx - self.rect.centerx)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 115:         dy = abs(player_rect.centery - self.rect.centery)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 116:         return dx <= settings.NPC_INTERACT_DISTANCE_X and dy <= settings.NPC_INTERACT_DISTANCE_Y
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 117: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 118:     def interact(self) -> str:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 119:         if self.dialogue_finished:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 120:             return "finished"
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 121: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 122:         self.quest_started = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 123: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 124:         if not self.talking:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 125:             self.talking = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 126:             self.dialogue_index = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 127:             return "opened"
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 128: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 129:         if self.dialogue_index < len(self.dialogue) - 1:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 130:             self.dialogue_index += 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 131:             return "advanced"
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 132: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 133:         self.talking = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 134:         self.dialogue_finished = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 135:         return "finished"
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 136: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 137:     def stop_talking(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 138:         self.talking = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 139: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 140:     def draw(self, surface: pygame.Surface):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 141:         surface.blit(self.image, self.rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 142: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 143:     def draw_overlay(self, surface: pygame.Surface, player_rect: pygame.Rect):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 144:         player_near = self.is_player_near(player_rect)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 145:         if player_near and not self.dialogue_finished:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 146:             prompt = self.prompt_font.render("E druecken um zu reden", True, (255, 248, 216))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 147:             prompt_rect = prompt.get_rect(midbottom=(self.rect.centerx, self.rect.top - 8))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 148:             surface.blit(prompt, prompt_rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 149: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 150:         if self.talking:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 151:             self._draw_dialog(surface)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 152: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 153:     def _draw_dialog(self, surface: pygame.Surface):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 154:         box_rect = pygame.Rect(30, settings.HEIGHT - 180, settings.WIDTH - 60, 140)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 155:         pygame.draw.rect(surface, (14, 16, 24), box_rect, border_radius=10)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 156:         pygame.draw.rect(surface, (228, 210, 150), box_rect, width=2, border_radius=10)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 157: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 158:         name_surface = self.name_font.render(self.name, True, (238, 224, 177))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 159:         surface.blit(name_surface, (box_rect.x + 14, box_rect.y + 10))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 160: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 161:         line1, line2 = self.dialogue[self.dialogue_index]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 162:         text1 = self.dialog_font.render(line1, True, (240, 240, 240))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 163:         text2 = self.dialog_font.render(line2, True, (240, 240, 240))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 164:         surface.blit(text1, (box_rect.x + 14, box_rect.y + 56))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 165:         surface.blit(text2, (box_rect.x + 14, box_rect.y + 86))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 166: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 167:         continue_hint = self.dialog_font.render("E: weiter", True, (220, 220, 220))
+Erklaerung: Springt direkt zur naechsten Schleifenrunde.
+Zeile 168:         hint_rect = continue_hint.get_rect(bottomright=(box_rect.right - 14, box_rect.bottom - 12))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 169:         surface.blit(continue_hint, hint_rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+
+DATEI: core/game.py
+------------------------------------------------------------------------------
+Zeile 1: import sys
+Erklaerung: Importiert ein Modul, das in dieser Datei verwendet wird.
+Zeile 2: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 3: import pygame
+Erklaerung: Importiert ein Modul, das in dieser Datei verwendet wird.
+Zeile 4: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 5: from core import settings
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 6: from core.window import create_window
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 7: from entities.boss_queen import BossQueen
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 8: from entities.enemy import Enemy
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 9: from entities.npc import NPC
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 10: from entities.player import Player
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 11: from ui.menu_screen import MenuScreen
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 12: from world.game_map import GameMap
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 13: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 14: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 15: class Game:
+Erklaerung: Definiert eine Klasse mit eigenem Zustand und Verhalten.
+Zeile 16:     def __init__(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 17:         # - Fenster, Map und Menue laden.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 18:         self.screen, self.clock = create_window()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 19:         self.game_map = GameMap()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 20:         self.menu = MenuScreen()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 21: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 22:         self.state = "menu"
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 23:         self.running = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 24: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 25:         self.current_level = settings.START_LEVEL
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 26:         self.player: Player | None = None
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 27:         # - Enemies kann normale Gegner oder Boss enthalten.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 28:         self.enemies: list[Enemy | BossQueen] = []
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 29:         self.npcs: list[NPC] = []
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 30:         self.game_won = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 31:         self.death_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 32:         self.respawn_font = pygame.font.SysFont(None, 34)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 33:         self.win_font = pygame.font.SysFont(None, 52)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 34:         self.level_font = pygame.font.SysFont(None, 24)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 35: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 36:         self.load_level(self.current_level)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 37: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 38:     def _get_level_config(self) -> dict:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 39:         if self.current_level in settings.LEVELS:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 40:             return settings.LEVELS[self.current_level]
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 41:         return settings.LEVELS[1]
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 42: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 43:     def load_level(self, level_number: int, preserve_player_health: bool = False):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 44:         # - Optional alte Lebenspunkte merken.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 45:         previous_health: int | None = None
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 46:         if preserve_player_health and self.player is not None:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 47:             previous_health = self.player.health
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 48: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 49:         self.current_level = level_number if level_number in settings.LEVELS else 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 50:         self.game_won = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 51:         self.death_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 52:         level_config = self._get_level_config()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 53:         self.game_map.set_level_visuals(
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 54:             map_file=level_config.get("map_file"),
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 55:             floor_y=level_config.get("floor_y"),
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 56:             draw_ground_overlay=level_config.get("draw_ground_overlay", True),
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 57:         )
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 58: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 59:         floor_y = self.game_map.floor_y
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 60:         player_y = floor_y - settings.SPRITE_SIZE[1]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 61:         self.player = Player(level_config["player_spawn_x"], player_y, floor_y)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 62: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 63:         # - Level kann erzwungen volle HP setzen (z.B. Hintergrund4).
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 64:         if bool(level_config.get("refill_player_health", False)):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 65:             self.player.health = self.player.max_health
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 66:         elif previous_health is not None:
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 67:             self.player.health = max(1, min(self.player.max_health, previous_health))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 68: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 69:         # - Standardgegner laden.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 70:         enemy_y = floor_y - settings.ENEMY_SIZE[1]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 71:         self.enemies = [Enemy(x, enemy_y) for x in level_config["enemy_spawns_x"]]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 72: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 73:         # - Optional Boss laden.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 74:         level_boss = self._build_level_boss(level_config, floor_y)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 75:         if level_boss is not None:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 76:             self.enemies.append(level_boss)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 77: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 78:         self.npcs = self._build_npcs(level_config, floor_y)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 79: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 80:     def _build_level_boss(self, level_config: dict, floor_y: int) -> BossQueen | None:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 81:         # - Kein Boss in diesem Level.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 82:         boss_config = level_config.get("boss_queen")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 83:         if not isinstance(boss_config, dict):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 84:             return None
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 85: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 86:         size = boss_config.get("size")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 87:         boss_width, boss_height = settings.BOSS_SIZE
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 88:         if (
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 89:             isinstance(size, (list, tuple))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 90:             and len(size) == 2
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 91:             and isinstance(size[0], int)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 92:             and isinstance(size[1], int)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 93:             and size[0] > 0
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 94:             and size[1] > 0
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 95:         ):
+Erklaerung: Leitet einen neuen eingerueckten Code-Block ein.
+Zeile 96:             boss_width, boss_height = size[0], size[1]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 97: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 98:         spawn_x = boss_config.get("x")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 99:         if not isinstance(spawn_x, int):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 100:             spawn_x = settings.WIDTH - boss_width - 120
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 101: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 102:         hover_height = boss_config.get("hover_height")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 103:         if not isinstance(hover_height, int):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 104:             hover_height = 70
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 105: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 106:         spawn_x = max(0, min(settings.WIDTH - boss_width, spawn_x))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 107:         spawn_y = floor_y - boss_height - hover_height
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 108:         spawn_y = max(0, min(settings.HEIGHT - boss_height, spawn_y))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 109: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 110:         # - Boss mit berechneter Position/Groesse erstellen.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 111:         return BossQueen(spawn_x, spawn_y, width=boss_width, height=boss_height)
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 112: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 113:     def _build_npcs(self, level_config: dict, floor_y: int) -> list[NPC]:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 114:         # - Neue NPC-Konfiguration (Liste von Dicts).
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 115:         npc_configs = level_config.get("npcs")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 116:         if isinstance(npc_configs, list):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 117:             built_npcs: list[NPC] = []
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 118:             for npc_cfg in npc_configs:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 119:                 if not isinstance(npc_cfg, dict):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 120:                     continue
+Erklaerung: Springt direkt zur naechsten Schleifenrunde.
+Zeile 121: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 122:                 x = npc_cfg.get("x")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 123:                 if not isinstance(x, int):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 124:                     continue
+Erklaerung: Springt direkt zur naechsten Schleifenrunde.
+Zeile 125: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 126:                 name = npc_cfg.get("name") if isinstance(npc_cfg.get("name"), str) else "Goddess"
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 127:                 sprite_file = npc_cfg.get("sprite_file") if isinstance(npc_cfg.get("sprite_file"), str) else None
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 128:                 # - Optionales Schweben pro NPC.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 129:                 floating = bool(npc_cfg.get("floating", False))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 130: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 131:                 size_value = npc_cfg.get("size")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 132:                 sprite_size: tuple[int, int] = settings.NPC_SPRITE_SIZE
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 133:                 if (
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 134:                     isinstance(size_value, (list, tuple))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 135:                     and len(size_value) == 2
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 136:                     and isinstance(size_value[0], int)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 137:                     and isinstance(size_value[1], int)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 138:                     and size_value[0] > 0
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 139:                     and size_value[1] > 0
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 140:                 ):
+Erklaerung: Leitet einen neuen eingerueckten Code-Block ein.
+Zeile 141:                     sprite_size = (size_value[0], size_value[1])
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 142: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 143:                 dialogue_raw = npc_cfg.get("dialogue")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 144:                 dialogue: list[tuple[str, str]] | None = None
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 145:                 if isinstance(dialogue_raw, list):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 146:                     parsed: list[tuple[str, str]] = []
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 147:                     for row in dialogue_raw:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 148:                         if (
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 149:                             isinstance(row, (list, tuple))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 150:                             and len(row) == 2
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 151:                             and isinstance(row[0], str)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 152:                             and isinstance(row[1], str)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 153:                         ):
+Erklaerung: Leitet einen neuen eingerueckten Code-Block ein.
+Zeile 154:                             parsed.append((row[0], row[1]))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 155:                     if parsed:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 156:                         dialogue = parsed
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 157: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 158:                 float_amplitude = npc_cfg.get("float_amplitude")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 159:                 if not isinstance(float_amplitude, int):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 160:                     float_amplitude = None
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 161: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 162:                 float_speed = npc_cfg.get("float_speed")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 163:                 if not isinstance(float_speed, (float, int)):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 164:                     float_speed = None
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 165: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 166:                 built_npcs.append(
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 167:                     NPC(
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 168:                         x=x,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 169:                         y=floor_y - sprite_size[1],
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 170:                         name=name,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 171:                         dialogue=dialogue,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 172:                         sprite_file=sprite_file,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 173:                         sprite_size=sprite_size,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 174:                         floating=floating,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 175:                         float_amplitude=float_amplitude,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 176:                         float_speed=float_speed,
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 177:                     )
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 178:                 )
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 179: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 180:             return built_npcs
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 181: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 182:         legacy_spawns = level_config.get("npc_spawns_x", [])
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 183:         default_y = floor_y - settings.NPC_SPRITE_SIZE[1]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 184:         return [NPC(x, default_y) for x in legacy_spawns if isinstance(x, int)]
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 185: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 186:     def _handle_right_exit_progression(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 187:         if self.player is None or self.state != "playing" or self.player.dead:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 188:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 189: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 190:         level_config = self._get_level_config()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 191:         next_level = level_config.get("next_level_on_right_exit")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 192:         if not isinstance(next_level, int):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 193:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 194: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 195:         require_clear = bool(level_config.get("require_enemies_cleared_for_exit", False))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 196:         if require_clear and self.enemies:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 197:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 198: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 199:         if self.player.rect.right >= settings.WIDTH:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 200:             self.load_level(next_level, preserve_player_health=True)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 201: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 202:     def respawn_player(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 203:         self.load_level(self.current_level)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 204: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 205:     def handle_events(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 206:         if self.player is None:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 207:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 208: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 209:         for event in pygame.event.get():
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 210:             if event.type == pygame.QUIT:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 211:                 self.running = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 212: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 213:             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 214:                 if self.state == "menu":
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 215:                     action = self.menu.get_action(event.pos)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 216:                     if action == "play":
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 217:                         self.state = "playing"
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 218:                     elif action == "exit":
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 219:                         self.running = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 220:                 elif self.state == "playing":
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 221:                     self.player.start_attack()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 222: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 223:             elif event.type == pygame.KEYDOWN:
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 224:                 if self.state == "playing" and event.key == pygame.K_j:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 225:                     self.player.start_attack()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 226:                 elif self.state == "playing" and event.key == pygame.K_e:
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 227:                     self.try_npc_interaction()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 228:                 elif self.state == "playing" and event.key == pygame.K_r and self.player.dead:
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 229:                     self.respawn_player()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 230:                 elif self.state == "menu" and event.key == pygame.K_RETURN:
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 231:                     self.state = "playing"
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 232:                 elif self.state == "menu" and event.key == pygame.K_ESCAPE:
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 233:                     self.running = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 234: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 235:     def try_npc_interaction(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 236:         if self.player is None:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 237:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 238: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 239:         interacted = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 240:         target_level: int | None = None
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 241:         level_config = self._get_level_config()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 242: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 243:         for npc in self.npcs:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 244:             if npc.is_player_near(self.player.rect):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 245:                 result = npc.interact()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 246:                 if result == "finished":
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 247:                     next_level = level_config.get("next_level_on_npc_finish")
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 248:                     if isinstance(next_level, int):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 249:                         target_level = next_level
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 250:                 interacted = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 251:             else:
+Erklaerung: Fallback-Zweig, falls keine vorherige Bedingung zutrifft.
+Zeile 252:                 npc.stop_talking()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 253: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 254:         if target_level is not None:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 255:             self.load_level(target_level, preserve_player_health=True)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 256:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 257: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 258:         if not interacted:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 259:             for npc in self.npcs:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 260:                 npc.stop_talking()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 261: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 262:     def update(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 263:         if self.state != "playing" or self.player is None:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 264:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 265: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 266:         # - Nach Boss-Tod keine Spiel-Updates mehr.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 267:         if self.game_won:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 268:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 269: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 270:         self.player.update()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 271:         self._handle_player_attack_hits()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 272: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 273:         # - Auto-Respawn wenn Spieler tot ist.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 274:         if self.player.dead:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 275:             self._handle_auto_respawn()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 276:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 277: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 278:         for npc in self.npcs:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 279:             npc.update()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 280:             if npc.talking and not npc.is_player_near(self.player.rect):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 281:                 npc.stop_talking()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 282: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 283:         for enemy in self.enemies:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 284:             enemy.update(self.player.rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 285: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 286:         if not self.player.dead:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 287:             for enemy in self.enemies:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 288:                 if enemy.can_damage_player(self.player.rect):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 289:                     self.player.take_damage(1)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 290:                     if self.player.dead:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 291:                         self._handle_auto_respawn()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 292:                         break
+Erklaerung: Beendet die aktuelle Schleife sofort.
+Zeile 293: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 294:         if self._is_level_boss_defeated():
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 295:             self.game_won = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 296:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 297: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 298:         # - Tote Standardgegner werden entfernt, Boss bleibt fuer Win-Anzeige.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 299:         if settings.ENEMY_DISAPPEAR_ON_DEATH:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 300:             self.enemies = [
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 301:                 enemy
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 302:                 for enemy in self.enemies
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 303:                 if not (enemy.dead and getattr(enemy, "remove_on_death", True))
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 304:             ]
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 305: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 306:         self._handle_right_exit_progression()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 307: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 308:     def _handle_player_attack_hits(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 309:         if self.player is None or not self.player.can_deal_damage():
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 310:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 311: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 312:         hitbox = self.player.get_attack_hitbox()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 313:         if hitbox is None:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 314:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 315: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 316:         for enemy in self.enemies:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 317:             if enemy.dead:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 318:                 continue
+Erklaerung: Springt direkt zur naechsten Schleifenrunde.
+Zeile 319: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 320:             if hitbox.colliderect(enemy.rect):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 321:                 was_hit = enemy.take_damage(1)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 322:                 if was_hit:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 323:                     self.player.mark_attack_damage_done()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 324:                     break
+Erklaerung: Beendet die aktuelle Schleife sofort.
+Zeile 325: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 326:     def _is_level_boss_defeated(self) -> bool:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 327:         boss_found = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 328:         for enemy in self.enemies:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 329:             if getattr(enemy, "is_boss", False):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 330:                 boss_found = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 331:                 if not enemy.dead:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 332:                     return False
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 333:         return boss_found
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 334: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 335:     def _handle_auto_respawn(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 336:         if self.player is None or not self.player.dead:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 337:             self.death_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 338:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 339: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 340:         # - Falls deaktiviert, bleibt nur manuelles Respawn.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 341:         if not settings.AUTO_RESPAWN_ON_DEATH:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 342:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 343: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 344:         # - Nach Delay Level neu laden.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 345:         self.death_timer += 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 346:         if self.death_timer >= settings.RESPAWN_DELAY_FRAMES:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 347:             self.respawn_player()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 348: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 349:     def draw(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 350:         if self.player is None:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 351:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 352: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 353:         if self.state == "menu":
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 354:             self.menu.draw(self.screen)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 355:             pygame.display.flip()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 356:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 357: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 358:         self.game_map.draw(self.screen)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 359: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 360:         for npc in self.npcs:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 361:             npc.draw(self.screen)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 362:         for enemy in self.enemies:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 363:             enemy.draw(self.screen)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 364: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 365:         self.player.draw(self.screen)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 366:         self.player.draw_health(self.screen)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 367:         for npc in self.npcs:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 368:             npc.draw_overlay(self.screen, self.player.rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 369: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 370:         if self.game_won:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 371:             self._draw_win_hint()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 372:         elif self.player.dead:
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 373:             self._draw_respawn_hint()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 374: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 375:         self._draw_level_hint()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 376:         pygame.display.flip()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 377: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 378:     def _draw_respawn_hint(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 379:         title = self.respawn_font.render("Du bist gestorben", True, (255, 210, 210))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 380:         hint = self.respawn_font.render("Druecke R zum Respawn", True, (255, 240, 220))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 381:         title_rect = title.get_rect(center=(settings.WIDTH // 2, settings.HEIGHT // 2 - 20))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 382:         hint_rect = hint.get_rect(center=(settings.WIDTH // 2, settings.HEIGHT // 2 + 20))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 383:         self.screen.blit(title, title_rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 384:         self.screen.blit(hint, hint_rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 385: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 386:     def _draw_win_hint(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 387:         overlay = pygame.Surface((settings.WIDTH, settings.HEIGHT), pygame.SRCALPHA)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 388:         overlay.fill((0, 0, 0, 120))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 389:         self.screen.blit(overlay, (0, 0))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 390: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 391:         title = self.win_font.render("WIN GAME", True, (255, 244, 160))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 392:         subtitle = self.respawn_font.render("ist zu Ende", True, (245, 245, 245))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 393:         title_rect = title.get_rect(center=(settings.WIDTH // 2, settings.HEIGHT // 2 - 10))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 394:         subtitle_rect = subtitle.get_rect(center=(settings.WIDTH // 2, settings.HEIGHT // 2 + 34))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 395:         self.screen.blit(title, title_rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 396:         self.screen.blit(subtitle, subtitle_rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 397: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 398:     def _draw_level_hint(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 399:         label = self.level_font.render(f"Level {self.current_level}", True, (240, 240, 240))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 400:         self.screen.blit(label, (12, 12))
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 401: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 402:     def run(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 403:         while self.running:
+Erklaerung: Start einer Schleife, die laeuft solange die Bedingung True ist.
+Zeile 404:             self.handle_events()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 405:             self.update()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 406:             self.draw()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 407:             self.clock.tick(settings.FPS)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 408: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 409:         pygame.quit()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 410:         sys.exit()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+
+DATEI: entities/boss_queen.py
+------------------------------------------------------------------------------
+Zeile 1: import math
+Erklaerung: Importiert ein Modul, das in dieser Datei verwendet wird.
+Zeile 2: import re
+Erklaerung: Importiert ein Modul, das in dieser Datei verwendet wird.
+Zeile 3: from pathlib import Path
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 4: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 5: import pygame
+Erklaerung: Importiert ein Modul, das in dieser Datei verwendet wird.
+Zeile 6: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 7: from core import settings
+Erklaerung: Importiert gezielt Namen aus einem Modul.
+Zeile 8: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 9: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 10: class BossQueen:
+Erklaerung: Definiert eine Klasse mit eigenem Zustand und Verhalten.
+Zeile 11:     def __init__(self, x: int, y: int, width: int | None = None, height: int | None = None):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 12:         # - Boss-Groesse aus Parameter oder Settings.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 13:         boss_width = width or settings.BOSS_SIZE[0]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 14:         boss_height = height or settings.BOSS_SIZE[1]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 15: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 16:         self.rect = pygame.Rect(x, y, boss_width, boss_height)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 17:         self.facing_right = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 18: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 19:         # - Boss-Lebenssystem.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 20:         self.max_health = settings.BOSS_MAX_HEALTH
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 21:         self.health = settings.BOSS_MAX_HEALTH
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 22:         self.dead = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 23:         self.remove_on_death = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 24:         self.is_boss = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 25: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 26:         # - Kampfstatus.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 27:         self.hit_cooldown_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 28:         self.attack_cooldown_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 29:         self.attack_damage_applied = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 30:         self.pending_damage = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 31:         self.damage_window_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 32: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 33:         # - Animationsstatus.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 34:         self.current_animation = "idle"
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 35:         self.frame_index = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 36:         self.animation_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 37: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 38:         # - Schwebe-Basis.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 39:         self.base_center_y = self.rect.centery
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 40:         self.float_phase = 0.0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 41: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 42:         self.animations = self._load_animations((boss_width, boss_height))
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 43:         self.animation_speeds = {
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 44:             "idle": settings.BOSS_IDLE_SPEED,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 45:             "attack": settings.BOSS_ATTACK_SPEED,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 46:             "dead": settings.BOSS_DEATH_SPEED,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 47:         }
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 48:         self.image = self.animations["idle"][0]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 49: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 50:     def _find_boss_assets_dir(self) -> Path:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 51:         # - Sucht einen Unterordner mit Idl + Attack (robust gegen Namen).
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 52:         roots = [settings.ENEMY_ASSETS_DIR, settings.ASSETS_DIR / "Enemy"]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 53:         for root in roots:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 54:             if not root.exists():
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 55:                 continue
+Erklaerung: Springt direkt zur naechsten Schleifenrunde.
+Zeile 56:             for child in root.iterdir():
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 57:                 if not child.is_dir():
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 58:                     continue
+Erklaerung: Springt direkt zur naechsten Schleifenrunde.
+Zeile 59: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 60:                 has_idle = (child / "Idl").exists() or (child / "idl").exists()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 61:                 has_attack = (child / "Attack").exists()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 62:                 if not (has_idle and has_attack):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 63:                     continue
+Erklaerung: Springt direkt zur naechsten Schleifenrunde.
+Zeile 64: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 65:                 if child.name.lower() in {"attack", "dead", "walk", "idl", "idle"}:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 66:                     continue
+Erklaerung: Springt direkt zur naechsten Schleifenrunde.
+Zeile 67: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 68:                 return child
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 69: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 70:         return settings.ENEMY_ASSETS_DIR
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 71: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 72:     def _load_animations(self, size: tuple[int, int]) -> dict[str, list[pygame.Surface]]:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 73:         # - Boss nutzt Idl/Attack; Dead bleibt auf letztem Attack-Frame.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 74:         base = self._find_boss_assets_dir()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 75:         idle = self._load_folder_frames(base / "Idl", size)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 76:         attack = self._load_folder_frames(base / "Attack", size)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 77: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 78:         if not idle:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 79:             idle = [self._fallback_surface(size, (168, 132, 196))]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 80:         if not attack:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 81:             attack = idle
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 82: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 83:         dead = [attack[-1]]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 84:         return {"idle": idle, "attack": attack, "dead": dead}
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 85: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 86:     def _load_folder_frames(self, folder: Path, size: tuple[int, int]) -> list[pygame.Surface]:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 87:         if not folder.exists():
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 88:             return []
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 89: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 90:         paths = sorted(folder.glob("*.png"), key=self._frame_sort_key)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 91:         frames: list[pygame.Surface] = []
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 92:         for path in paths:
+Erklaerung: Start einer Schleife ueber mehrere Werte/Objekte.
+Zeile 93:             frame = pygame.image.load(str(path)).convert_alpha()
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 94:             frame = pygame.transform.scale(frame, size)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 95:             frames.append(frame)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 96:         return frames
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 97: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 98:     @staticmethod
+Erklaerung: Decorator-Zeile: aendert das Verhalten der folgenden Funktion.
+Zeile 99:     def _frame_sort_key(path: Path) -> int:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 100:         numbers = re.findall(r"\d+", path.stem)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 101:         if numbers:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 102:             return int(numbers[0])
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 103:         return 9999
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 104: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 105:     @staticmethod
+Erklaerung: Decorator-Zeile: aendert das Verhalten der folgenden Funktion.
+Zeile 106:     def _fallback_surface(size: tuple[int, int], color: tuple[int, int, int]) -> pygame.Surface:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 107:         surface = pygame.Surface(size, pygame.SRCALPHA)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 108:         surface.fill(color)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 109:         return surface
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 110: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 111:     def _set_animation(self, name: str):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 112:         if self.current_animation != name:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 113:             self.current_animation = name
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 114:             self.frame_index = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 115:             self.animation_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 116:             if name == "attack":
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 117:                 self.attack_damage_applied = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 118: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 119:     def _is_player_near(self, player_rect: pygame.Rect, dist_x: int, dist_y: int) -> bool:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 120:         dx = abs(player_rect.centerx - self.rect.centerx)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 121:         dy = abs(player_rect.centery - self.rect.centery)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 122:         return dx <= dist_x and dy <= dist_y
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 123: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 124:     def _is_player_in_attack_radius(self, player_rect: pygame.Rect) -> bool:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 125:         dx = player_rect.centerx - self.rect.centerx
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 126:         dy = player_rect.centery - self.rect.centery
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 127:         return math.hypot(dx, dy) <= settings.BOSS_ATTACK_RADIUS
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 128: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 129:     def _float_motion(self):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 130:         # - Sinus-Schweben.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 131:         self.float_phase += settings.BOSS_FLOAT_SPEED
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 132:         vertical_offset = math.sin(self.float_phase) * settings.BOSS_FLOAT_AMPLITUDE
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 133:         self.rect.centery = int(self.base_center_y + vertical_offset)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 134: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 135:     def _hover_towards_player(self, player_rect: pygame.Rect):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 136:         # - Leichte horizontale Bewegung zum Spieler.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 137:         if player_rect.centerx > self.rect.centerx + 24:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 138:             self.rect.x += settings.BOSS_DRIFT_SPEED
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 139:         elif player_rect.centerx < self.rect.centerx - 24:
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 140:             self.rect.x -= settings.BOSS_DRIFT_SPEED
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 141: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 142:         self.rect.left = max(0, self.rect.left)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 143:         self.rect.right = min(settings.WIDTH, self.rect.right)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 144: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 145:     def take_damage(self, amount: int = 1) -> bool:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 146:         # - Nimmt Schaden nur wenn nicht tot und nicht im Hit-Cooldown.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 147:         if self.dead or self.hit_cooldown_timer > 0:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 148:             return False
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 149: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 150:         self.health = max(0, self.health - amount)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 151:         self.hit_cooldown_timer = settings.BOSS_HIT_COOLDOWN
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 152: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 153:         if self.health <= 0:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 154:             self.dead = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 155:             self.pending_damage = False
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 156:             self.damage_window_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 157:             self._set_animation("dead")
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 158:         else:
+Erklaerung: Fallback-Zweig, falls keine vorherige Bedingung zutrifft.
+Zeile 159:             self._set_animation("idle")
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 160: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 161:         return True
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 162: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 163:     def update(self, player_rect: pygame.Rect):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 164:         # - Damage-Fenster fuer Radius-Angriff.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 165:         if self.damage_window_timer > 0:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 166:             self.damage_window_timer -= 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 167:         self.pending_damage = self.damage_window_timer > 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 168: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 169:         if self.hit_cooldown_timer > 0:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 170:             self.hit_cooldown_timer -= 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 171:         if self.attack_cooldown_timer > 0:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 172:             self.attack_cooldown_timer -= 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 173: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 174:         self.facing_right = player_rect.centerx >= self.rect.centerx
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 175: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 176:         if self.dead:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 177:             self._float_motion()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 178:             self._animate(player_rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 179:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 180: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 181:         # - Aggro/Attack nur wenn Spieler nah genug ist.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 182:         player_is_near = self._is_player_near(
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 183:             player_rect,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 184:             settings.BOSS_AGGRO_DISTANCE_X,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 185:             settings.BOSS_AGGRO_DISTANCE_Y,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 186:         )
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 187:         player_in_attack_range = self._is_player_near(
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 188:             player_rect,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 189:             settings.BOSS_ATTACK_DISTANCE_X,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 190:             settings.BOSS_ATTACK_DISTANCE_Y,
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 191:         )
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 192: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 193:         if (
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 194:             player_is_near
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 195:             and player_in_attack_range
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 196:             and self.attack_cooldown_timer == 0
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 197:             and self.current_animation != "attack"
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 198:         ):
+Erklaerung: Leitet einen neuen eingerueckten Code-Block ein.
+Zeile 199:             self._set_animation("attack")
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 200:         elif self.current_animation != "attack":
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 201:             self._set_animation("idle")
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 202:             if player_is_near:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 203:                 self._hover_towards_player(player_rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 204: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 205:         self._float_motion()
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 206:         self._animate(player_rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 207: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 208:     def _animate(self, player_rect: pygame.Rect):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 209:         # - Framewechsel nach eingestellter Geschwindigkeit.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 210:         frames = self.animations[self.current_animation]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 211:         speed = self.animation_speeds[self.current_animation]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 212: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 213:         self.animation_timer += 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 214:         if self.animation_timer < speed:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 215:             self.image = frames[self.frame_index]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 216:             return
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 217: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 218:         self.animation_timer = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 219:         self.frame_index += 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 220: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 221:         if self.current_animation == "dead":
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 222:             if self.frame_index >= len(frames):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 223:                 self.frame_index = len(frames) - 1
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 224: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 225:         elif self.current_animation == "attack":
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 226:             if (
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 227:                 self.frame_index >= settings.BOSS_DAMAGE_FRAME
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 228:                 and not self.attack_damage_applied
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 229:             ):
+Erklaerung: Leitet einen neuen eingerueckten Code-Block ein.
+Zeile 230:                 # - Radius-Schaden wird fuer ein kurzes Fenster aktiv.
+Erklaerung: Kommentarzeile: beschreibt kurz den Zweck des folgenden Blocks.
+Zeile 231:                 self.damage_window_timer = settings.BOSS_DAMAGE_WINDOW_FRAMES
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 232:                 self.pending_damage = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 233:                 self.attack_damage_applied = True
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 234: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 235:             if self.frame_index >= len(frames):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 236:                 self.frame_index = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 237:                 self.attack_cooldown_timer = settings.BOSS_ATTACK_COOLDOWN
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 238:                 self._set_animation("idle")
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 239: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 240:         elif self.frame_index >= len(frames):
+Erklaerung: Alternative Bedingung, falls vorherige if-Bedingung nicht zutraf.
+Zeile 241:             self.frame_index = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 242: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 243:         frames = self.animations[self.current_animation]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 244:         if self.frame_index >= len(frames):
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 245:             self.frame_index = 0
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 246:         self.image = frames[self.frame_index]
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 247: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 248:     def can_damage_player(self, player_rect: pygame.Rect) -> bool:
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 249:         if self.dead or not self.pending_damage:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 250:             return False
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 251: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 252:         return self._is_player_in_attack_radius(player_rect)
+Erklaerung: Gibt einen Wert zurueck oder beendet die Funktion hier.
+Zeile 253: 
+Erklaerung: Leerzeile fuer bessere Struktur und Lesbarkeit.
+Zeile 254:     def draw(self, surface: pygame.Surface):
+Erklaerung: Definiert eine Methode/Funktion mit dieser Aufgabe.
+Zeile 255:         if self.facing_right:
+Erklaerung: Start einer Bedingung: der Block laeuft nur wenn die Bedingung True ist.
+Zeile 256:             surface.blit(self.image, self.rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+Zeile 257:         else:
+Erklaerung: Fallback-Zweig, falls keine vorherige Bedingung zutrifft.
+Zeile 258:             flipped = pygame.transform.flip(self.image, True, False)
+Erklaerung: Setzt oder aktualisiert einen Wert in einer Variable/Struktur.
+Zeile 259:             surface.blit(flipped, self.rect)
+Erklaerung: Ausfuehrungszeile innerhalb der aktuellen Logik (Aufruf, Ausdruck oder Verarbeitung).
+

@@ -1,0 +1,243 @@
+Ordner: animations
+Zweck:
+- Hier liegt die komplette Animations-Logik (Frames laden und Animationen je Zustand).
+
+Datei: animations\__init__.py
+- Gesamtzeilen: 0
+- Zeilen-Erklaerung:
+
+Datei: animations\attack.py
+- Gesamtzeilen: 22
+- Zeilen-Erklaerung:
+  - Zeile 1: `from animations.utils import load_frames`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 4: `def load_attack_animations(sprite_size: tuple[int, int]) -> dict[str, list]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 5: `    return {`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 6: `        "attack1": load_frames(`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 7: `            "attack",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 8: `            ["ATTACK1.png", "ATTACK2.png", "ATTACK3.png", "ATTACK4.png", "ATTACK5.png"],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 9: `            sprite_size,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 10: `        ),`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 11: `        "attack2": load_frames(`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 12: `            "attack",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 13: `            ["ATTACK2_1.png", "ATTACK2_2.png", "ATTACK2_3.png", "ATTACK2_4.png"],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 14: `            sprite_size,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 15: `        ),`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 16: `        "attack3": load_frames(`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 17: `            "attack",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 18: `            ["ATTACK3_1.png", "ATTACK3_2.png", "ATTACK3_3.png", "ATTACK3_4.png", "ATTACK3_5.png"],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 19: `            sprite_size,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 20: `        ),`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 21: `    }`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 22: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+
+Datei: animations\death.py
+- Gesamtzeilen: 28
+- Zeilen-Erklaerung:
+  - Zeile 1: `import re`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 2: `from pathlib import Path`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 3: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 4: `from animations.utils import ANIMATION_ROOT, load_and_scale`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 5: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 6: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 7: `def _death_sort_key(path: Path) -> int:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 8: `    stem = path.stem.upper()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 9: `    if stem == "DEATH":`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 10: `        return -1`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 11: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 12: `    match = re.fullmatch(r"DEATH(\d+)", stem)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 13: `    if match:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 14: `        return int(match.group(1))`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 15: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 16: `    return 9999`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 17: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 18: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 19: `def load_death_animations(sprite_size: tuple[int, int]) -> dict[str, list]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 20: `    death_dir = ANIMATION_ROOT / "death"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 21: `    frame_paths = sorted(death_dir.glob("DEATH*.png"), key=_death_sort_key)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 22: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 23: `    if not frame_paths:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 24: `        return {}`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 25: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 26: `    frames = [load_and_scale(frame_path, sprite_size) for frame_path in frame_paths]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 27: `    return {"death": frames}`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 28: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+
+Datei: animations\jump.py
+- Gesamtzeilen: 13
+- Zeilen-Erklaerung:
+  - Zeile 1: `from animations.utils import list_existing_frames, load_frames`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 4: `def load_jump_animations(sprite_size: tuple[int, int]) -> dict[str, list]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 5: `    candidates = [f"JUMP{i}.png" for i in range(1, 9)]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 6: `    jump_files = list_existing_frames("jump", candidates)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 7: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 8: `    if jump_files:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 9: `        return {"jump": load_frames("jump", jump_files, sprite_size)}`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 10: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 11: `    # Fallback if no dedicated jump sprites exist yet.`
+    -> Kommentarzeile mit Zusatzinfo fuer den Leser.
+  - Zeile 12: `    return {"jump": load_frames("idle", ["IDLE2.png", "IDLE3.png"], sprite_size)}`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 13: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+
+Datei: animations\move.py
+- Gesamtzeilen: 17
+- Zeilen-Erklaerung:
+  - Zeile 1: `from animations.utils import load_frames`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 4: `def load_move_animations(sprite_size: tuple[int, int]) -> dict[str, list]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 5: `    return {`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 6: `        "idle": load_frames(`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 7: `            "idle",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 8: `            ["IDLE1.png", "IDLE2.png", "IDLE3.png"],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 9: `            sprite_size,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 10: `        ),`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 11: `        "run": load_frames(`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 12: `            "move",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 13: `            ["RUN1.png", "RUN2.png", "RUN3.png", "RUN4.png", "RUN5.png", "RUN6.png"],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 14: `            sprite_size,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 15: `        ),`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 16: `    }`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 17: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+
+Datei: animations\utils.py
+- Gesamtzeilen: 28
+- Zeilen-Erklaerung:
+  - Zeile 1: `from pathlib import Path`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: `import pygame`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 4: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 5: `from core import settings`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 6: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 7: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 8: `ANIMATION_ROOT = settings.ASSETS_DIR / "Animation"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 9: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 10: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 11: `def load_and_scale(path: Path, size: tuple[int, int]) -> pygame.Surface:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 12: `    image = pygame.image.load(str(path)).convert_alpha()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 13: `    return pygame.transform.scale(image, size)`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 14: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 15: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 16: `def load_frames(folder: str, filenames: list[str], size: tuple[int, int]) -> list[pygame.Surface]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 17: `    frames: list[pygame.Surface] = []`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 18: `    for filename in filenames:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 19: `        file_path = ANIMATION_ROOT / folder / filename`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 20: `        if not file_path.exists():`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 21: `            raise FileNotFoundError(f"Animation frame not found: {file_path}")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 22: `        frames.append(load_and_scale(file_path, size))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 23: `    return frames`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 24: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 25: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 26: `def list_existing_frames(folder: str, filenames: list[str]) -> list[str]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 27: `    base_path = ANIMATION_ROOT / folder`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 28: `    return [filename for filename in filenames if (base_path / filename).exists()]`
+    -> Gibt einen Wert an den Aufrufer zurueck.

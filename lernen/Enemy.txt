@@ -1,0 +1,23 @@
+Ordner: Enemy
+Zweck:
+- Hier liegen die Roh-Sprites fuer den Skelett-Gegner (Idle/Walk/Attack/Dead).
+
+Inhalt:
+- Unterordner: 4
+- Dateien: 14
+
+Dateiliste:
+- Enemy\Attack\Skeleton_01_White_Attack1.png
+- Enemy\Attack\Skeleton_02_White_Attack1.png
+- Enemy\Attack\Skeleton_03_White_Attack1.png
+- Enemy\Attack\Skeleton_04_White_Attack1.png
+- Enemy\Attack\Skeleton_05_White_Attack1.png
+- Enemy\Attack\Skeleton_06_White_Attack1.png
+- Enemy\Dead\Skeleton_01_White_Die.png
+- Enemy\Dead\Skeleton_02_White_Die.png
+- Enemy\Dead\Skeleton_03_White_Die.png
+- Enemy\idl\Skeleton_01_White_Idle.png
+- Enemy\Walk\Skeleton_01_White_Walk.png
+- Enemy\Walk\Skeleton_02_White_Walk.png
+- Enemy\Walk\Skeleton_03_White_Walk.png
+- Enemy\Walk\Skeleton_04_White_Walk.png

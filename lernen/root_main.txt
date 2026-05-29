@@ -1,0 +1,23 @@
+Datei: main.py (Projekt-Root)
+Zweck: Startet das Spiel.
+
+- Zeile 1: `from core.game import Game`
+  -> Importiert gezielt Namen/Funktionen aus einem Modul.
+- Zeile 2: ``
+  -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+- Zeile 3: ``
+  -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+- Zeile 4: `def main():`
+  -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+- Zeile 5: `    game = Game()`
+  -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+- Zeile 6: `    game.run()`
+  -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+- Zeile 7: ``
+  -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+- Zeile 8: ``
+  -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+- Zeile 9: `if __name__ == "__main__":`
+  -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+- Zeile 10: `    main()`
+  -> Fuehrt einen Funktionsaufruf oder eine Methode aus.

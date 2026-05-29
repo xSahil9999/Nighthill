@@ -1,0 +1,171 @@
+Ordner: ui
+Zweck:
+- Hier liegt die Benutzeroberflaeche, aktuell vor allem der Startbildschirm.
+
+Datei: ui\__init__.py
+- Gesamtzeilen: 0
+- Zeilen-Erklaerung:
+
+Datei: ui\menu_screen.py
+- Gesamtzeilen: 80
+- Zeilen-Erklaerung:
+  - Zeile 1: `import pygame`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: `from core import settings`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 4: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 5: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 6: `class MenuScreen:`
+    -> Definiert eine Klasse als Bauplan fuer ein Objekt.
+  - Zeile 7: `    def __init__(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 8: `        self.background = self._load_background()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 9: `        self.font = pygame.font.SysFont(None, 36)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 10: `        self.title_font = pygame.font.SysFont(None, 56)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 11: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 12: `        self.play_button = pygame.Rect(`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 13: `            settings.MENU_PLAY_X,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 14: `            settings.MENU_PLAY_Y,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 15: `            settings.MENU_BUTTON_WIDTH,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 16: `            settings.MENU_BUTTON_HEIGHT,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 17: `        )`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 18: `        self.exit_button = pygame.Rect(`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 19: `            settings.MENU_EXIT_X,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 20: `            settings.MENU_EXIT_Y,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 21: `            settings.MENU_BUTTON_WIDTH,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 22: `            settings.MENU_BUTTON_HEIGHT,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 23: `        )`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 24: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 25: `    def _load_background(self) -> pygame.Surface | None:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 26: `        menu_path = settings.ASSETS_DIR / "menu" / "menu.png"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 27: `        if not menu_path.exists():`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 28: `            return None`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 29: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 30: `        image = pygame.image.load(str(menu_path)).convert()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 31: `        return self._scale_to_cover(image, settings.WIDTH, settings.HEIGHT)`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 32: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 33: `    @staticmethod`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 34: `    def _scale_to_cover(image: pygame.Surface, target_w: int, target_h: int) -> pygame.Surface:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 35: `        src_w, src_h = image.get_size()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 36: `        scale = max(target_w / src_w, target_h / src_h)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 37: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 38: `        scaled_w = int(src_w * scale)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 39: `        scaled_h = int(src_h * scale)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 40: `        scaled = pygame.transform.smoothscale(image, (scaled_w, scaled_h))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 41: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 42: `        result = pygame.Surface((target_w, target_h))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 43: `        offset_x = (target_w - scaled_w) // 2`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 44: `        offset_y = (target_h - scaled_h) // 2`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 45: `        result.blit(scaled, (offset_x, offset_y))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 46: `        return result`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 47: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 48: `    def get_action(self, mouse_pos: tuple[int, int]) -> str | None:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 49: `        if self.play_button.collidepoint(mouse_pos):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 50: `            return "play"`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 51: `        if self.exit_button.collidepoint(mouse_pos):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 52: `            return "exit"`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 53: `        return None`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 54: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 55: `    def draw(self, surface: pygame.Surface):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 56: `        if self.background is not None:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 57: `            surface.blit(self.background, (0, 0))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 58: `        else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 59: `            surface.fill((10, 12, 16))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 60: `            title = self.title_font.render("Night Hill", True, (240, 240, 240))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 61: `            title_rect = title.get_rect(center=(settings.WIDTH // 2, 120))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 62: `            surface.blit(title, title_rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 63: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 64: `        self._draw_button(surface, self.play_button, "PLAY", settings.MENU_PLAY_COLOR)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 65: `        self._draw_button(surface, self.exit_button, "EXIT", settings.MENU_EXIT_COLOR)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 66: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 67: `    def _draw_button(`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 68: `        self,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 69: `        surface: pygame.Surface,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 70: `        rect: pygame.Rect,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 71: `        label: str,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 72: `        color: tuple[int, int, int],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 73: `    ):`
+    -> Startet einen neuen Code-Block (z.B. Bedingung/Schleife/Funktion).
+  - Zeile 74: `        if settings.MENU_BUTTONS_VISIBLE:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 75: `            pygame.draw.rect(surface, color, rect, border_radius=8)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 76: `            pygame.draw.rect(surface, (25, 25, 25), rect, width=2, border_radius=8)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 77: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 78: `            text = self.font.render(label, True, (20, 20, 20))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 79: `            text_rect = text.get_rect(center=rect.center)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 80: `            surface.blit(text, text_rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.

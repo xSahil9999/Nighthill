@@ -1,0 +1,1321 @@
+Ordner: entities
+Zweck:
+- Hier liegen alle Spielobjekte mit Verhalten (Player, Gegner, NPC).
+
+Datei: entities\__init__.py
+- Gesamtzeilen: 0
+- Zeilen-Erklaerung:
+
+Datei: entities\enemy.py
+- Gesamtzeilen: 236
+- Zeilen-Erklaerung:
+  - Zeile 1: `import re`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 2: `from pathlib import Path`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 3: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 4: `import pygame`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 5: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 6: `from core import settings`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 7: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 8: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 9: `class Enemy:`
+    -> Definiert eine Klasse als Bauplan fuer ein Objekt.
+  - Zeile 10: `    def __init__(self, x: int, y: int, width: int | None = None, height: int | None = None):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 11: `        enemy_width = width or settings.ENEMY_SIZE[0]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 12: `        enemy_height = height or settings.ENEMY_SIZE[1]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 13: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 14: `        self.rect = pygame.Rect(x, y, enemy_width, enemy_height)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 15: `        self.speed = settings.ENEMY_SPEED`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 16: `        self.facing_right = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 17: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 18: `        self.left_bound = max(0, x - settings.ENEMY_PATROL_RANGE)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 19: `        self.right_bound = min(settings.WIDTH - enemy_width, x + settings.ENEMY_PATROL_RANGE)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 20: `        self.patrol_direction = 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 21: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 22: `        self.max_health = settings.ENEMY_MAX_HEALTH`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 23: `        self.health = settings.ENEMY_MAX_HEALTH`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 24: `        self.dead = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 25: `        self.hit_cooldown_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 26: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 27: `        self.current_animation = "idle"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 28: `        self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 29: `        self.animation_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 30: `        self.attack_cooldown_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 31: `        self.attack_damage_applied = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 32: `        self.pending_damage = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 33: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 34: `        self.animations = self._load_animations((enemy_width, enemy_height))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 35: `        self.animation_speeds = {`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 36: `            "idle": settings.ENEMY_IDLE_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 37: `            "walk": settings.ENEMY_WALK_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 38: `            "attack": settings.ENEMY_ATTACK_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 39: `            "dead": settings.ENEMY_DEATH_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 40: `        }`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 41: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 42: `        self.image = self.animations["idle"][0]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 43: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 44: `    def _find_enemy_assets_dir(self) -> Path:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 45: `        root_candidate = settings.ENEMY_ASSETS_DIR`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 46: `        if root_candidate.exists():`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 47: `            return root_candidate`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 48: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 49: `        assets_candidate = settings.ASSETS_DIR / "Enemy"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 50: `        if assets_candidate.exists():`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 51: `            return assets_candidate`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 52: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 53: `        return root_candidate`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 54: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 55: `    def _load_animations(self, size: tuple[int, int]) -> dict[str, list[pygame.Surface]]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 56: `        base = self._find_enemy_assets_dir()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 57: `        idle = self._load_folder_frames(base / "idl", size)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 58: `        walk = self._load_folder_frames(base / "Walk", size)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 59: `        attack = self._load_folder_frames(base / "Attack", size)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 60: `        dead = self._load_folder_frames(base / "Dead", size)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 61: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 62: `        if not idle:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 63: `            idle = [self._fallback_surface(size, (165, 165, 175))]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 64: `        if not walk:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 65: `            walk = idle`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 66: `        if not attack:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 67: `            attack = idle`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 68: `        if not dead:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 69: `            dead = idle`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 70: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 71: `        return {"idle": idle, "walk": walk, "attack": attack, "dead": dead}`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 72: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 73: `    def _load_folder_frames(self, folder: Path, size: tuple[int, int]) -> list[pygame.Surface]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 74: `        if not folder.exists():`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 75: `            return []`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 76: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 77: `        paths = sorted(folder.glob("*.png"), key=self._frame_sort_key)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 78: `        frames: list[pygame.Surface] = []`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 79: `        for path in paths:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 80: `            frame = pygame.image.load(str(path)).convert_alpha()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 81: `            frame = pygame.transform.scale(frame, size)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 82: `            frames.append(frame)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 83: `        return frames`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 84: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 85: `    @staticmethod`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 86: `    def _frame_sort_key(path: Path) -> int:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 87: `        numbers = re.findall(r"\d+", path.stem)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 88: `        if numbers:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 89: `            return int(numbers[0])`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 90: `        return 9999`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 91: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 92: `    @staticmethod`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 93: `    def _fallback_surface(size: tuple[int, int], color: tuple[int, int, int]) -> pygame.Surface:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 94: `        surface = pygame.Surface(size, pygame.SRCALPHA)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 95: `        surface.fill(color)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 96: `        return surface`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 97: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 98: `    def _set_animation(self, name: str):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 99: `        if self.current_animation != name:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 100: `            self.current_animation = name`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 101: `            self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 102: `            self.animation_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 103: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 104: `            if name == "attack":`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 105: `                self.attack_damage_applied = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 106: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 107: `    def _is_player_near(self, player_rect: pygame.Rect, dist_x: int, dist_y: int) -> bool:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 108: `        dx = abs(player_rect.centerx - self.rect.centerx)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 109: `        dy = abs(player_rect.centery - self.rect.centery)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 110: `        return dx <= dist_x and dy <= dist_y`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 111: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 112: `    def take_damage(self, amount: int = 1) -> bool:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 113: `        if self.dead or self.hit_cooldown_timer > 0:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 114: `            return False`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 115: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 116: `        self.health = max(0, self.health - amount)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 117: `        self.hit_cooldown_timer = settings.ENEMY_HIT_COOLDOWN`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 118: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 119: `        if self.health <= 0:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 120: `            self.dead = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 121: `            self.pending_damage = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 122: `            self._set_animation("dead")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 123: `        else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 124: `            self._set_animation("idle")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 125: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 126: `        return True`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 127: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 128: `    def update(self, player_rect: pygame.Rect):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 129: `        self.pending_damage = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 130: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 131: `        if self.hit_cooldown_timer > 0:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 132: `            self.hit_cooldown_timer -= 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 133: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 134: `        if self.dead:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 135: `            self._animate(player_rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 136: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 137: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 138: `        if self.attack_cooldown_timer > 0:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 139: `            self.attack_cooldown_timer -= 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 140: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 141: `        player_is_near = self._is_player_near(`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 142: `            player_rect,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 143: `            settings.ENEMY_AGGRO_DISTANCE_X,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 144: `            settings.ENEMY_AGGRO_DISTANCE_Y,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 145: `        )`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 146: `        player_in_attack_range = self._is_player_near(`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 147: `            player_rect,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 148: `            settings.ENEMY_ATTACK_DISTANCE_X,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 149: `            settings.ENEMY_ATTACK_DISTANCE_Y,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 150: `        )`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 151: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 152: `        if player_is_near:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 153: `            self.facing_right = player_rect.centerx >= self.rect.centerx`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 154: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 155: `            if (`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 156: `                player_in_attack_range`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 157: `                and self.attack_cooldown_timer == 0`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 158: `                and self.current_animation != "attack"`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 159: `            ):`
+    -> Startet einen neuen Code-Block (z.B. Bedingung/Schleife/Funktion).
+  - Zeile 160: `                self._set_animation("attack")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 161: `            elif self.current_animation != "attack":`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 162: `                self._set_animation("walk")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 163: `                if not player_in_attack_range:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 164: `                    if player_rect.centerx > self.rect.centerx:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 165: `                        self.rect.x += self.speed`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 166: `                    elif player_rect.centerx < self.rect.centerx:`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 167: `                        self.rect.x -= self.speed`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 168: `        elif self.current_animation != "attack":`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 169: `            self._set_animation("walk")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 170: `            self.rect.x += self.speed * self.patrol_direction`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 171: `            if self.rect.x <= self.left_bound or self.rect.x >= self.right_bound:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 172: `                self.patrol_direction *= -1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 173: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 174: `        self.rect.left = max(0, self.rect.left)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 175: `        self.rect.right = min(settings.WIDTH, self.rect.right)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 176: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 177: `        self._animate(player_rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 178: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 179: `    def _animate(self, player_rect: pygame.Rect):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 180: `        frames = self.animations[self.current_animation]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 181: `        speed = self.animation_speeds[self.current_animation]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 182: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 183: `        self.animation_timer += 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 184: `        if self.animation_timer < speed:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 185: `            self.image = frames[self.frame_index]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 186: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 187: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 188: `        self.animation_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 189: `        self.frame_index += 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 190: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 191: `        if self.current_animation == "dead":`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 192: `            if self.frame_index >= len(frames):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 193: `                self.frame_index = len(frames) - 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 194: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 195: `        elif self.current_animation == "attack":`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 196: `            if (`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 197: `                self.frame_index >= settings.ENEMY_DAMAGE_FRAME`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 198: `                and not self.attack_damage_applied`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 199: `                and self._is_player_near(`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 200: `                    player_rect,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 201: `                    settings.ENEMY_ATTACK_DISTANCE_X,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 202: `                    settings.ENEMY_ATTACK_DISTANCE_Y,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 203: `                )`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 204: `            ):`
+    -> Startet einen neuen Code-Block (z.B. Bedingung/Schleife/Funktion).
+  - Zeile 205: `                self.pending_damage = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 206: `                self.attack_damage_applied = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 207: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 208: `            if self.frame_index >= len(frames):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 209: `                self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 210: `                self.attack_cooldown_timer = settings.ENEMY_ATTACK_COOLDOWN`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 211: `                self._set_animation("idle")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 212: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 213: `        elif self.frame_index >= len(frames):`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 214: `            self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 215: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 216: `        frames = self.animations[self.current_animation]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 217: `        if self.frame_index >= len(frames):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 218: `            self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 219: `        self.image = frames[self.frame_index]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 220: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 221: `    def can_damage_player(self, player_rect: pygame.Rect) -> bool:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 222: `        if self.dead or not self.pending_damage:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 223: `            return False`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 224: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 225: `        return self._is_player_near(`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 226: `            player_rect,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 227: `            settings.ENEMY_ATTACK_DISTANCE_X,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 228: `            settings.ENEMY_ATTACK_DISTANCE_Y,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 229: `        )`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 230: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 231: `    def draw(self, surface: pygame.Surface):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 232: `        if self.facing_right:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 233: `            surface.blit(self.image, self.rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 234: `        else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 235: `            flipped = pygame.transform.flip(self.image, True, False)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 236: `            surface.blit(flipped, self.rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+
+Datei: entities\npc.py
+- Gesamtzeilen: 138
+- Zeilen-Erklaerung:
+  - Zeile 1: `import re`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: `import pygame`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 4: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 5: `from core import settings`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 6: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 7: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 8: `class NPC:`
+    -> Definiert eine Klasse als Bauplan fuer ein Objekt.
+  - Zeile 9: `    def __init__(`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 10: `        self,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 11: `        x: int,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 12: `        y: int,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 13: `        name: str = "Goddess",`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 14: `        dialogue: list[tuple[str, str]] | None = None,`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 15: `        sprite_file: str | None = None,`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 16: `    ):`
+    -> Startet einen neuen Code-Block (z.B. Bedingung/Schleife/Funktion).
+  - Zeile 17: `        self.name = name`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 18: `        self.sprite_file = sprite_file`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 19: `        self.frames = self._load_idle_frames()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 20: `        self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 21: `        self.animation_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 22: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 23: `        self.image = self.frames[0]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 24: `        self.rect = self.image.get_rect(topleft=(x, y))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 25: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 26: `        self.dialogue = dialogue or [`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 27: `            ("Ich habe auf dich gewartet, Held.", "Night Hill braucht deine Hilfe."),`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 28: `            ("Du bist auserwaehlt und stark genug.", "Nur du kannst das Gleichgewicht retten."),`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 29: `            ("Geh jetzt nach Night Hill.", "Dort beginnt deine wahre Reise."),`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 30: `        ]`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 31: `        self.dialogue_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 32: `        self.talking = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 33: `        self.quest_started = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 34: `        self.dialogue_finished = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 35: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 36: `        self.prompt_font = pygame.font.SysFont(None, 28)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 37: `        self.name_font = pygame.font.SysFont(None, 30)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 38: `        self.dialog_font = pygame.font.SysFont(None, 26)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 39: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 40: `    def _load_idle_frames(self) -> list[pygame.Surface]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 41: `        if self.sprite_file:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 42: `            custom_path = settings.ASSETS_DIR / self.sprite_file`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 43: `            if custom_path.exists():`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 44: `                frame = pygame.image.load(str(custom_path)).convert_alpha()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 45: `                frame = pygame.transform.scale(frame, settings.NPC_SPRITE_SIZE)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 46: `                return [frame]`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 47: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 48: `        idle_dir = settings.ASSETS_DIR / "NPC" / "idl"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 49: `        frame_paths = sorted(idle_dir.glob("*.png"), key=self._frame_sort_key)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 50: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 51: `        if not frame_paths:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 52: `            fallback = pygame.Surface(settings.NPC_SPRITE_SIZE, pygame.SRCALPHA)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 53: `            fallback.fill((220, 200, 120))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 54: `            return [fallback]`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 55: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 56: `        frames: list[pygame.Surface] = []`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 57: `        for path in frame_paths:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 58: `            frame = pygame.image.load(str(path)).convert_alpha()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 59: `            frame = pygame.transform.scale(frame, settings.NPC_SPRITE_SIZE)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 60: `            frames.append(frame)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 61: `        return frames`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 62: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 63: `    @staticmethod`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 64: `    def _frame_sort_key(path) -> int:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 65: `        match = re.search(r"(\d+)$", path.stem)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 66: `        if match:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 67: `            return int(match.group(1))`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 68: `        return 9999`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 69: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 70: `    def update(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 71: `        self.animation_timer += 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 72: `        if self.animation_timer < settings.NPC_IDLE_SPEED:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 73: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 74: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 75: `        self.animation_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 76: `        self.frame_index += 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 77: `        if self.frame_index >= len(self.frames):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 78: `            self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 79: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 80: `        self.image = self.frames[self.frame_index]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 81: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 82: `    def is_player_near(self, player_rect: pygame.Rect) -> bool:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 83: `        dx = abs(player_rect.centerx - self.rect.centerx)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 84: `        dy = abs(player_rect.centery - self.rect.centery)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 85: `        return dx <= settings.NPC_INTERACT_DISTANCE_X and dy <= settings.NPC_INTERACT_DISTANCE_Y`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 86: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 87: `    def interact(self) -> str:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 88: `        if self.dialogue_finished:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 89: `            return "finished"`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 90: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 91: `        self.quest_started = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 92: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 93: `        if not self.talking:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 94: `            self.talking = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 95: `            self.dialogue_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 96: `            return "opened"`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 97: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 98: `        if self.dialogue_index < len(self.dialogue) - 1:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 99: `            self.dialogue_index += 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 100: `            return "advanced"`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 101: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 102: `        self.talking = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 103: `        self.dialogue_finished = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 104: `        return "finished"`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 105: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 106: `    def stop_talking(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 107: `        self.talking = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 108: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 109: `    def draw(self, surface: pygame.Surface):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 110: `        surface.blit(self.image, self.rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 111: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 112: `    def draw_overlay(self, surface: pygame.Surface, player_rect: pygame.Rect):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 113: `        player_near = self.is_player_near(player_rect)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 114: `        if player_near and not self.dialogue_finished:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 115: `            prompt = self.prompt_font.render("E druecken um zu reden", True, (255, 248, 216))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 116: `            prompt_rect = prompt.get_rect(midbottom=(self.rect.centerx, self.rect.top - 8))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 117: `            surface.blit(prompt, prompt_rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 118: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 119: `        if self.talking:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 120: `            self._draw_dialog(surface)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 121: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 122: `    def _draw_dialog(self, surface: pygame.Surface):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 123: `        box_rect = pygame.Rect(30, settings.HEIGHT - 180, settings.WIDTH - 60, 140)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 124: `        pygame.draw.rect(surface, (14, 16, 24), box_rect, border_radius=10)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 125: `        pygame.draw.rect(surface, (228, 210, 150), box_rect, width=2, border_radius=10)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 126: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 127: `        name_surface = self.name_font.render(self.name, True, (238, 224, 177))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 128: `        surface.blit(name_surface, (box_rect.x + 14, box_rect.y + 10))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 129: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 130: `        line1, line2 = self.dialogue[self.dialogue_index]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 131: `        text1 = self.dialog_font.render(line1, True, (240, 240, 240))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 132: `        text2 = self.dialog_font.render(line2, True, (240, 240, 240))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 133: `        surface.blit(text1, (box_rect.x + 14, box_rect.y + 56))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 134: `        surface.blit(text2, (box_rect.x + 14, box_rect.y + 86))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 135: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 136: `        continue_hint = self.dialog_font.render("E: weiter", True, (220, 220, 220))`
+    -> Springt in der Schleife direkt zum naechsten Durchlauf.
+  - Zeile 137: `        hint_rect = continue_hint.get_rect(bottomright=(box_rect.right - 14, box_rect.bottom - 12))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 138: `        surface.blit(continue_hint, hint_rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+
+Datei: entities\player.py
+- Gesamtzeilen: 277
+- Zeilen-Erklaerung:
+  - Zeile 1: `import pygame`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: `from animations.attack import load_attack_animations`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 4: `from animations.death import load_death_animations`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 5: `from animations.jump import load_jump_animations`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 6: `from animations.move import load_move_animations`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 7: `from core import settings`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 8: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 9: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 10: `class Player:`
+    -> Definiert eine Klasse als Bauplan fuer ein Objekt.
+  - Zeile 11: `    def __init__(self, x: int, y: int, floor_y: int):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 12: `        self.speed = settings.PLAYER_SPEED`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 13: `        self.facing_right = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 14: `        self.floor_y = floor_y`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 15: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 16: `        self.current_animation = "idle"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 17: `        self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 18: `        self.animation_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 19: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 20: `        self.attacking = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 21: `        self.combo_step = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 22: `        self.combo_queued = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 23: `        self.attack_damage_done = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 24: `        self.dead = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 25: `        self.death_finished = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 26: `        self.max_health = settings.PLAYER_MAX_HEALTH`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 27: `        self.health = settings.PLAYER_MAX_HEALTH`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 28: `        self.hit_cooldown_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 29: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 30: `        self.velocity_y = 0.0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 31: `        self.on_ground = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 32: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 33: `        self.animations: dict[str, list[pygame.Surface]] = {}`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 34: `        self.animations.update(load_move_animations(settings.SPRITE_SIZE))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 35: `        self.animations.update(load_attack_animations(settings.SPRITE_SIZE))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 36: `        self.animations.update(load_jump_animations(settings.SPRITE_SIZE))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 37: `        self.animations.update(load_death_animations(settings.SPRITE_SIZE))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 38: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 39: `        self.animation_speeds = {`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 40: `            "idle": settings.IDLE_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 41: `            "run": settings.RUN_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 42: `            "jump": settings.JUMP_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 43: `            "attack1": settings.ATTACK_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 44: `            "attack2": settings.ATTACK_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 45: `            "attack3": settings.ATTACK_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 46: `            "death": settings.DEATH_SPEED,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 47: `        }`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 48: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 49: `        self.image = self.animations["idle"][0]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 50: `        self.rect = self.image.get_rect(topleft=(x, y))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 51: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 52: `        if self.rect.bottom > self.floor_y:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 53: `            self.rect.bottom = self.floor_y`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 54: `        self.on_ground = self.rect.bottom >= self.floor_y`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 55: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 56: `    def _set_animation(self, name: str):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 57: `        if self.current_animation != name:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 58: `            self.current_animation = name`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 59: `            self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 60: `            self.animation_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 61: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 62: `            if name.startswith("attack"):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 63: `                self.attack_damage_done = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 64: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 65: `    def _end_attack(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 66: `        self.attacking = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 67: `        self.combo_step = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 68: `        self.combo_queued = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 69: `        self.attack_damage_done = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 70: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 71: `        if self.on_ground:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 72: `            self._set_animation("idle")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 73: `        else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 74: `            self._set_animation("jump")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 75: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 76: `    def start_attack(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 77: `        if self.dead:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 78: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 79: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 80: `        if not self.attacking:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 81: `            self.attacking = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 82: `            self.combo_step = 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 83: `            self.combo_queued = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 84: `            self._set_animation("attack1")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 85: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 86: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 87: `        if self.combo_step in (1, 2):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 88: `            self.combo_queued = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 89: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 90: `    def start_jump(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 91: `        if self.dead or not self.on_ground:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 92: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 93: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 94: `        self.velocity_y = -settings.JUMP_STRENGTH`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 95: `        self.on_ground = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 96: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 97: `        if not self.attacking:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 98: `            self._set_animation("jump")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 99: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 100: `    def handle_input(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 101: `        if self.dead:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 102: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 103: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 104: `        keys = pygame.key.get_pressed()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 105: `        moving = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 106: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 107: `        if keys[pygame.K_a]:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 108: `            self.rect.x -= self.speed`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 109: `            self.facing_right = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 110: `            moving = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 111: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 112: `        if keys[pygame.K_d]:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 113: `            self.rect.x += self.speed`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 114: `            self.facing_right = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 115: `            moving = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 116: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 117: `        if keys[pygame.K_SPACE] or keys[pygame.K_w]:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 118: `            self.start_jump()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 119: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 120: `        if self.rect.left < 0:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 121: `            self.rect.left = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 122: `        if self.rect.right > settings.WIDTH:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 123: `            self.rect.right = settings.WIDTH`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 124: `        if self.rect.top < 0:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 125: `            self.rect.top = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 126: `            self.velocity_y = max(0.0, self.velocity_y)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 127: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 128: `        if not self.attacking:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 129: `            if not self.on_ground:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 130: `                self._set_animation("jump")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 131: `            elif moving:`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 132: `                self._set_animation("run")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 133: `            else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 134: `                self._set_animation("idle")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 135: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 136: `    def die(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 137: `        if self.dead or "death" not in self.animations:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 138: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 139: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 140: `        self.dead = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 141: `        self.death_finished = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 142: `        self.attacking = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 143: `        self.combo_step = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 144: `        self.combo_queued = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 145: `        self.attack_damage_done = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 146: `        self.velocity_y = 0.0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 147: `        self._set_animation("death")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 148: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 149: `    def take_damage(self, amount: int = 1):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 150: `        if self.dead or self.hit_cooldown_timer > 0:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 151: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 152: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 153: `        self.health = max(0, self.health - amount)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 154: `        self.hit_cooldown_timer = settings.PLAYER_HIT_COOLDOWN`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 155: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 156: `        if self.health <= 0:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 157: `            self.die()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 158: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 159: `    def apply_gravity(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 160: `        self.velocity_y += settings.GRAVITY`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 161: `        self.rect.y += int(self.velocity_y)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 162: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 163: `        if self.rect.bottom >= self.floor_y:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 164: `            self.rect.bottom = self.floor_y`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 165: `            self.velocity_y = 0.0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 166: `            self.on_ground = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 167: `        else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 168: `            self.on_ground = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 169: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 170: `    def get_current_frames(self) -> list[pygame.Surface]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 171: `        return self.animations.get(self.current_animation, self.animations["idle"])`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 172: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 173: `    def animate(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 174: `        frames = self.get_current_frames()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 175: `        speed = self.animation_speeds.get(self.current_animation, settings.IDLE_SPEED)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 176: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 177: `        self.animation_timer += 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 178: `        if self.animation_timer < speed:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 179: `            self.image = frames[self.frame_index]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 180: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 181: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 182: `        self.animation_timer = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 183: `        self.frame_index += 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 184: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 185: `        if self.current_animation == "death":`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 186: `            if self.frame_index >= len(frames):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 187: `                self.frame_index = len(frames) - 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 188: `                self.death_finished = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 189: `        elif self.current_animation == "attack1":`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 190: `            if self.frame_index >= len(frames):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 191: `                if self.combo_queued:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 192: `                    self.combo_step = 2`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 193: `                    self.combo_queued = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 194: `                    self._set_animation("attack2")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 195: `                else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 196: `                    self._end_attack()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 197: `        elif self.current_animation == "attack2":`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 198: `            if self.frame_index >= len(frames):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 199: `                if self.combo_queued:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 200: `                    self.combo_step = 3`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 201: `                    self.combo_queued = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 202: `                    self._set_animation("attack3")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 203: `                else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 204: `                    self._end_attack()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 205: `        elif self.current_animation == "attack3":`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 206: `            if self.frame_index >= len(frames):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 207: `                self._end_attack()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 208: `        elif self.frame_index >= len(frames):`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 209: `            self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 210: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 211: `        frames = self.get_current_frames()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 212: `        if self.frame_index >= len(frames):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 213: `            self.frame_index = 0`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 214: `        self.image = frames[self.frame_index]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 215: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 216: `    def update(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 217: `        if self.hit_cooldown_timer > 0:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 218: `            self.hit_cooldown_timer -= 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 219: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 220: `        self.handle_input()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 221: `        self.apply_gravity()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 222: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 223: `        if not self.dead and not self.attacking and self.on_ground and self.current_animation == "jump":`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 224: `            self._set_animation("idle")`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 225: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 226: `        self.animate()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 227: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 228: `    def draw(self, surface: pygame.Surface):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 229: `        if self.facing_right:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 230: `            surface.blit(self.image, self.rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 231: `        else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 232: `            flipped_image = pygame.transform.flip(self.image, True, False)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 233: `            surface.blit(flipped_image, self.rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 234: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 235: `    def can_deal_damage(self) -> bool:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 236: `        if self.dead or not self.attacking:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 237: `            return False`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 238: `        if not self.current_animation.startswith("attack"):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 239: `            return False`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 240: `        if self.attack_damage_done:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 241: `            return False`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 242: `        return self.frame_index >= 1`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 243: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 244: `    def mark_attack_damage_done(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 245: `        self.attack_damage_done = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 246: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 247: `    def get_attack_hitbox(self) -> pygame.Rect | None:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 248: `        if not self.current_animation.startswith("attack"):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 249: `            return None`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 250: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 251: `        hitbox_width = 42`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 252: `        hitbox_height = self.rect.height - 16`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 253: `        hitbox_y = self.rect.y + 8`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 254: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 255: `        if self.facing_right:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 256: `            hitbox_x = self.rect.right - 8`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 257: `        else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 258: `            hitbox_x = self.rect.left - hitbox_width + 8`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 259: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 260: `        return pygame.Rect(hitbox_x, hitbox_y, hitbox_width, hitbox_height)`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 261: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 262: `    def draw_health(self, surface: pygame.Surface):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 263: `        bar_width = 42`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 264: `        bar_height = 8`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 265: `        gap = 10`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 266: `        start_x = 18`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 267: `        start_y = 44`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 268: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 269: `        for idx in range(self.max_health):`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 270: `            x = start_x + idx * (bar_width + gap)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 271: `            rect = pygame.Rect(x, start_y, bar_width, bar_height)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 272: `            if idx < self.health:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 273: `                color = (220, 62, 62)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 274: `            else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 275: `                color = (75, 35, 35)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 276: `            pygame.draw.rect(surface, color, rect, border_radius=3)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 277: `            pygame.draw.rect(surface, (15, 15, 15), rect, width=1, border_radius=3)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.

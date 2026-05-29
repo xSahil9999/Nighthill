@@ -1,0 +1,28 @@
+Ordner: __pycache__
+Zweck:
+- Automatisch erzeugter Python-Cache mit .pyc-Dateien zur schnelleren Ausfuehrung.
+
+Inhalt:
+- Unterordner: 0
+- Dateien: 14
+
+Hinweis:
+- Dieser Ordner wird von Python automatisch erstellt.
+- Er enthaelt kompilierte `.pyc`-Dateien.
+- Du darfst ihn loeschen; Python baut ihn bei Bedarf neu auf.
+
+Dateiliste:
+- __pycache__\animation_attack.cpython-313.pyc
+- __pycache__\animation_death.cpython-313.pyc
+- __pycache__\animation_jump.cpython-313.pyc
+- __pycache__\animation_move.cpython-313.pyc
+- __pycache__\animation_utils.cpython-313.pyc
+- __pycache__\enemy.cpython-313.pyc
+- __pycache__\game.cpython-313.pyc
+- __pycache__\game_map.cpython-313.pyc
+- __pycache__\main.cpython-313.pyc
+- __pycache__\menu_screen.cpython-313.pyc
+- __pycache__\npc.cpython-313.pyc
+- __pycache__\player.cpython-313.pyc
+- __pycache__\settings.cpython-313.pyc
+- __pycache__\window.cpython-313.pyc

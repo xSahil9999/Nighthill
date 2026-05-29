@@ -1,0 +1,755 @@
+Ordner: core
+Zweck:
+- Hier liegt die zentrale Spielsteuerung (Game-Loop, Fenster, globale Einstellungen).
+
+Datei: core\__init__.py
+- Gesamtzeilen: 0
+- Zeilen-Erklaerung:
+
+Datei: core\game.py
+- Gesamtzeilen: 257
+- Zeilen-Erklaerung:
+  - Zeile 1: `import sys`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: `import pygame`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 4: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 5: `from core import settings`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 6: `from core.window import create_window`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 7: `from entities.enemy import Enemy`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 8: `from entities.npc import NPC`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 9: `from entities.player import Player`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 10: `from ui.menu_screen import MenuScreen`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 11: `from world.game_map import GameMap`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 12: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 13: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 14: `class Game:`
+    -> Definiert eine Klasse als Bauplan fuer ein Objekt.
+  - Zeile 15: `    def __init__(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 16: `        self.screen, self.clock = create_window()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 17: `        self.game_map = GameMap()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 18: `        self.menu = MenuScreen()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 19: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 20: `        self.state = "menu"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 21: `        self.running = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 22: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 23: `        self.current_level = 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 24: `        self.player: Player | None = None`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 25: `        self.enemies: list[Enemy] = []`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 26: `        self.npcs: list[NPC] = []`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 27: `        self.respawn_font = pygame.font.SysFont(None, 34)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 28: `        self.level_font = pygame.font.SysFont(None, 24)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 29: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 30: `        self.load_level(self.current_level)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 31: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 32: `    def _get_level_config(self) -> dict:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 33: `        if self.current_level in settings.LEVELS:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 34: `            return settings.LEVELS[self.current_level]`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 35: `        return settings.LEVELS[1]`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 36: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 37: `    def load_level(self, level_number: int, preserve_player_health: bool = False):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 38: `        previous_health: int | None = None`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 39: `        if preserve_player_health and self.player is not None:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 40: `            previous_health = self.player.health`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 41: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 42: `        self.current_level = level_number if level_number in settings.LEVELS else 1`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 43: `        level_config = self._get_level_config()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 44: `        self.game_map.set_level_visuals(`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 45: `            map_file=level_config.get("map_file"),`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 46: `            floor_y=level_config.get("floor_y"),`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 47: `            draw_ground_overlay=level_config.get("draw_ground_overlay", True),`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 48: `        )`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 49: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 50: `        floor_y = self.game_map.floor_y`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 51: `        player_y = floor_y - settings.SPRITE_SIZE[1]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 52: `        self.player = Player(level_config["player_spawn_x"], player_y, floor_y)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 53: `        if previous_health is not None:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 54: `            self.player.health = max(1, min(self.player.max_health, previous_health))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 55: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 56: `        enemy_y = floor_y - settings.ENEMY_SIZE[1]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 57: `        self.enemies = [Enemy(x, enemy_y) for x in level_config["enemy_spawns_x"]]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 58: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 59: `        npc_y = floor_y - settings.NPC_SPRITE_SIZE[1]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 60: `        self.npcs = self._build_npcs(level_config, npc_y)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 61: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 62: `    def _build_npcs(self, level_config: dict, npc_y: int) -> list[NPC]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 63: `        npc_configs = level_config.get("npcs")`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 64: `        if isinstance(npc_configs, list):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 65: `            built_npcs: list[NPC] = []`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 66: `            for npc_cfg in npc_configs:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 67: `                if not isinstance(npc_cfg, dict):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 68: `                    continue`
+    -> Springt in der Schleife direkt zum naechsten Durchlauf.
+  - Zeile 69: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 70: `                x = npc_cfg.get("x")`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 71: `                if not isinstance(x, int):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 72: `                    continue`
+    -> Springt in der Schleife direkt zum naechsten Durchlauf.
+  - Zeile 73: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 74: `                name = npc_cfg.get("name") if isinstance(npc_cfg.get("name"), str) else "Goddess"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 75: `                sprite_file = npc_cfg.get("sprite_file") if isinstance(npc_cfg.get("sprite_file"), str) else None`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 76: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 77: `                dialogue_raw = npc_cfg.get("dialogue")`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 78: `                dialogue: list[tuple[str, str]] | None = None`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 79: `                if isinstance(dialogue_raw, list):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 80: `                    parsed: list[tuple[str, str]] = []`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 81: `                    for row in dialogue_raw:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 82: `                        if (`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 83: `                            isinstance(row, (list, tuple))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 84: `                            and len(row) == 2`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 85: `                            and isinstance(row[0], str)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 86: `                            and isinstance(row[1], str)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 87: `                        ):`
+    -> Startet einen neuen Code-Block (z.B. Bedingung/Schleife/Funktion).
+  - Zeile 88: `                            parsed.append((row[0], row[1]))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 89: `                    if parsed:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 90: `                        dialogue = parsed`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 91: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 92: `                built_npcs.append(`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 93: `                    NPC(`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 94: `                        x=x,`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 95: `                        y=npc_y,`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 96: `                        name=name,`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 97: `                        dialogue=dialogue,`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 98: `                        sprite_file=sprite_file,`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 99: `                    )`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 100: `                )`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 101: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 102: `            return built_npcs`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 103: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 104: `        legacy_spawns = level_config.get("npc_spawns_x", [])`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 105: `        return [NPC(x, npc_y) for x in legacy_spawns if isinstance(x, int)]`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 106: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 107: `    def respawn_player(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 108: `        self.load_level(self.current_level)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 109: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 110: `    def handle_events(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 111: `        if self.player is None:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 112: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 113: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 114: `        for event in pygame.event.get():`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 115: `            if event.type == pygame.QUIT:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 116: `                self.running = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 117: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 118: `            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 119: `                if self.state == "menu":`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 120: `                    action = self.menu.get_action(event.pos)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 121: `                    if action == "play":`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 122: `                        self.state = "playing"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 123: `                    elif action == "exit":`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 124: `                        self.running = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 125: `                elif self.state == "playing":`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 126: `                    self.player.start_attack()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 127: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 128: `            elif event.type == pygame.KEYDOWN:`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 129: `                if self.state == "playing" and event.key == pygame.K_j:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 130: `                    self.player.start_attack()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 131: `                elif self.state == "playing" and event.key == pygame.K_e:`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 132: `                    self.try_npc_interaction()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 133: `                elif self.state == "playing" and event.key == pygame.K_r and self.player.dead:`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 134: `                    self.respawn_player()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 135: `                elif self.state == "menu" and event.key == pygame.K_RETURN:`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 136: `                    self.state = "playing"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 137: `                elif self.state == "menu" and event.key == pygame.K_ESCAPE:`
+    -> Alternative Bedingung, falls vorherige Bedingungen nicht zutreffen.
+  - Zeile 138: `                    self.running = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 139: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 140: `    def try_npc_interaction(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 141: `        if self.player is None:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 142: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 143: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 144: `        interacted = False`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 145: `        target_level: int | None = None`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 146: `        level_config = self._get_level_config()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 147: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 148: `        for npc in self.npcs:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 149: `            if npc.is_player_near(self.player.rect):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 150: `                result = npc.interact()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 151: `                if result == "finished":`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 152: `                    next_level = level_config.get("next_level_on_npc_finish")`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 153: `                    if isinstance(next_level, int):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 154: `                        target_level = next_level`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 155: `                interacted = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 156: `            else:`
+    -> Ausweichfall, wenn keine vorherige Bedingung gegriffen hat.
+  - Zeile 157: `                npc.stop_talking()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 158: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 159: `        if target_level is not None:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 160: `            self.load_level(target_level, preserve_player_health=True)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 161: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 162: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 163: `        if not interacted:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 164: `            for npc in self.npcs:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 165: `                npc.stop_talking()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 166: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 167: `    def update(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 168: `        if self.state != "playing" or self.player is None:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 169: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 170: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 171: `        self.player.update()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 172: `        self._handle_player_attack_hits()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 173: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 174: `        for npc in self.npcs:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 175: `            npc.update()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 176: `            if npc.talking and not npc.is_player_near(self.player.rect):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 177: `                npc.stop_talking()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 178: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 179: `        for enemy in self.enemies:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 180: `            enemy.update(self.player.rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 181: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 182: `        if not self.player.dead:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 183: `            for enemy in self.enemies:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 184: `                if enemy.can_damage_player(self.player.rect):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 185: `                    self.player.take_damage(1)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 186: `                    if self.player.dead:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 187: `                        break`
+    -> Bricht die aktuelle Schleife sofort ab.
+  - Zeile 188: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 189: `        if settings.ENEMY_DISAPPEAR_ON_DEATH:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 190: `            self.enemies = [enemy for enemy in self.enemies if not enemy.dead]`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 191: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 192: `    def _handle_player_attack_hits(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 193: `        if self.player is None or not self.player.can_deal_damage():`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 194: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 195: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 196: `        hitbox = self.player.get_attack_hitbox()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 197: `        if hitbox is None:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 198: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 199: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 200: `        for enemy in self.enemies:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 201: `            if enemy.dead:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 202: `                continue`
+    -> Springt in der Schleife direkt zum naechsten Durchlauf.
+  - Zeile 203: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 204: `            if hitbox.colliderect(enemy.rect):`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 205: `                was_hit = enemy.take_damage(1)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 206: `                if was_hit:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 207: `                    self.player.mark_attack_damage_done()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 208: `                    break`
+    -> Bricht die aktuelle Schleife sofort ab.
+  - Zeile 209: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 210: `    def draw(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 211: `        if self.player is None:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 212: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 213: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 214: `        if self.state == "menu":`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 215: `            self.menu.draw(self.screen)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 216: `            pygame.display.flip()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 217: `            return`
+    -> Gibt einen Wert an den Aufrufer zurueck.
+  - Zeile 218: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 219: `        self.game_map.draw(self.screen)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 220: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 221: `        for npc in self.npcs:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 222: `            npc.draw(self.screen)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 223: `        for enemy in self.enemies:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 224: `            enemy.draw(self.screen)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 225: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 226: `        self.player.draw(self.screen)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 227: `        self.player.draw_health(self.screen)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 228: `        for npc in self.npcs:`
+    -> Schleife ueber mehrere Elemente.
+  - Zeile 229: `            npc.draw_overlay(self.screen, self.player.rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 230: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 231: `        if self.player.dead:`
+    -> Startet eine Bedingung: Code laeuft nur, wenn die Bedingung wahr ist.
+  - Zeile 232: `            self._draw_respawn_hint()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 233: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 234: `        self._draw_level_hint()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 235: `        pygame.display.flip()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 236: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 237: `    def _draw_respawn_hint(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 238: `        title = self.respawn_font.render("Du bist gestorben", True, (255, 210, 210))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 239: `        hint = self.respawn_font.render("Druecke R zum Respawn", True, (255, 240, 220))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 240: `        title_rect = title.get_rect(center=(settings.WIDTH // 2, settings.HEIGHT // 2 - 20))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 241: `        hint_rect = hint.get_rect(center=(settings.WIDTH // 2, settings.HEIGHT // 2 + 20))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 242: `        self.screen.blit(title, title_rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 243: `        self.screen.blit(hint, hint_rect)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 244: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 245: `    def _draw_level_hint(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 246: `        label = self.level_font.render(f"Level {self.current_level}", True, (240, 240, 240))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 247: `        self.screen.blit(label, (12, 12))`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 248: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 249: `    def run(self):`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 250: `        while self.running:`
+    -> Schleife, die laeuft, solange die Bedingung wahr ist.
+  - Zeile 251: `            self.handle_events()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 252: `            self.update()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 253: `            self.draw()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 254: `            self.clock.tick(settings.FPS)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 255: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 256: `        pygame.quit()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 257: `        sys.exit()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+
+Datei: core\settings.py
+- Gesamtzeilen: 100
+- Zeilen-Erklaerung:
+  - Zeile 1: `from pathlib import Path`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 4: `PROJECT_ROOT = Path(__file__).resolve().parent.parent`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 5: `ASSETS_DIR = PROJECT_ROOT / "assets"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 6: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 7: `WIDTH = 960`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 8: `HEIGHT = 600`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 9: `FPS = 60`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 10: `TITLE = "Night Hill"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 11: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 12: `BG_COLOR = (20, 20, 30)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 13: `SPRITE_SIZE = (96, 96)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 14: `ENEMY_SIZE = (72, 96)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 15: `NPC_SPRITE_SIZE = (110, 138)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 16: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 17: `PLAYER_SPEED = 4`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 18: `GRAVITY = 0.7`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 19: `JUMP_STRENGTH = 13`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 20: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 21: `IDLE_SPEED = 18`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 22: `RUN_SPEED = 6`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 23: `ATTACK_SPEED = 4`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 24: `JUMP_SPEED = 8`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 25: `DEATH_SPEED = 7`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 26: `NPC_IDLE_SPEED = 16`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 27: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 28: `GROUND_HEIGHT = 110`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 29: `ENEMY_SPEED = 2`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 30: `ENEMY_IDLE_SPEED = 20`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 31: `ENEMY_WALK_SPEED = 8`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 32: `ENEMY_ATTACK_SPEED = 5`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 33: `ENEMY_PATROL_RANGE = 120`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 34: `ENEMY_AGGRO_DISTANCE_X = 220`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 35: `ENEMY_AGGRO_DISTANCE_Y = 110`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 36: `ENEMY_ATTACK_DISTANCE_X = 90`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 37: `ENEMY_ATTACK_DISTANCE_Y = 95`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 38: `ENEMY_ATTACK_COOLDOWN = 50`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 39: `ENEMY_DAMAGE_FRAME = 3`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 40: `ENEMY_DEATH_SPEED = 10`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 41: `ENEMY_MAX_HEALTH = 3`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 42: `ENEMY_HIT_COOLDOWN = 14`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 43: `ENEMY_DISAPPEAR_ON_DEATH = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 44: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 45: `PLAYER_MAX_HEALTH = 3`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 46: `PLAYER_HIT_COOLDOWN = 40`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 47: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 48: `MENU_BUTTONS_VISIBLE = True`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 49: `MENU_BUTTON_WIDTH = 320`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 50: `MENU_BUTTON_HEIGHT = 70`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 51: `MENU_PLAY_X = (WIDTH - MENU_BUTTON_WIDTH) // 2`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 52: `MENU_PLAY_Y = 220`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 53: `MENU_EXIT_X = (WIDTH - MENU_BUTTON_WIDTH) // 2`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 54: `MENU_EXIT_Y = 305`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 55: `MENU_PLAY_COLOR = (70, 200, 120)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 56: `MENU_EXIT_COLOR = (220, 90, 90)`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 57: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 58: `NPC_INTERACT_DISTANCE_X = 120`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 59: `NPC_INTERACT_DISTANCE_Y = 90`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 60: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 61: `ENEMY_ASSETS_DIR = PROJECT_ROOT / "Enemy"`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 62: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 63: `LEVELS = {`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 64: `    1: {`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 65: `        "map_file": "Hintergrund.png",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 66: `        "player_spawn_x": 200,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 67: `        "enemy_spawns_x": [],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 68: `        "npcs": [`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 69: `            {`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 70: `                "x": 420,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 71: `                "name": "Goddess",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 72: `                "dialogue": [`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 73: `                    ("Du bist der Held fuer Night Hill.", "Deine Reise beginnt jetzt."),`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 74: `                    ("Geh nach Night Hill.", "Dort wartet deine Aufgabe."),`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 75: `                ],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 76: `            },`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 77: `        ],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 78: `        "next_level_on_npc_finish": 2,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 79: `        "floor_y": HEIGHT - GROUND_HEIGHT,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 80: `        "draw_ground_overlay": True,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 81: `    },`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 82: `    2: {`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 83: `        "map_file": "hintergrund3.png",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 84: `        "player_spawn_x": 160,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 85: `        "enemy_spawns_x": [520, 760],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 86: `        "npcs": [`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 87: `            {`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 88: `                "x": 310,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 89: `                "name": "NPC2",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 90: `                "sprite_file": "NPC/NPC2.png",`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 91: `                "dialogue": [`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 92: `                    ("Verschwinde sofort von hier!", "Mit dem Daemonenkoenig ist nicht zu spassen."),`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 93: `                    ("Wenn du bleibst, stirbst du.", "Geh und bereite dich vor."),`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 94: `                ],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 95: `            },`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 96: `        ],`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 97: `        "floor_y": HEIGHT - GROUND_HEIGHT,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 98: `        "draw_ground_overlay": False,`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 99: `    },`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+  - Zeile 100: `}`
+    -> Fuehrt den naechsten konkreten Logikschritt aus.
+
+Datei: core\window.py
+- Gesamtzeilen: 11
+- Zeilen-Erklaerung:
+  - Zeile 1: `import pygame`
+    -> Importiert ein Modul, das in dieser Datei benoetigt wird.
+  - Zeile 2: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 3: `from core import settings`
+    -> Importiert gezielt Namen/Funktionen aus einem Modul.
+  - Zeile 4: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 5: ``
+    -> Leerzeile fuer Struktur und bessere Lesbarkeit.
+  - Zeile 6: `def create_window() -> tuple[pygame.Surface, pygame.time.Clock]:`
+    -> Definiert eine Funktion/Methode mit eigenem Verhalten.
+  - Zeile 7: `    pygame.init()`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 8: `    screen = pygame.display.set_mode((settings.WIDTH, settings.HEIGHT))`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 9: `    pygame.display.set_caption(settings.TITLE)`
+    -> Fuehrt einen Funktionsaufruf oder eine Methode aus.
+  - Zeile 10: `    clock = pygame.time.Clock()`
+    -> Speichert einen Wert in einer Variable oder einem Objektfeld.
+  - Zeile 11: `    return screen, clock`
+    -> Gibt einen Wert an den Aufrufer zurueck.
